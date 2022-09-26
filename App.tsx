@@ -1,5 +1,5 @@
 import React from "react";
-import SplashScreen from "expo-splash-screen";
+import * as SplashScreen from "expo-splash-screen";
 
 import {
   Inter_400Regular,

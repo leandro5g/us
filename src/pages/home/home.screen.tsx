@@ -1,10 +1,15 @@
 import React from "react";
-import { View } from "react-native";
 
-// import { Container } from './styles';
+import { HeaderHome } from "./components/header-home/header-home.screen";
+
+import { Container } from "./home.styles";
 
 const Home: React.FC = () => {
-  return <View />;
+  return (
+    <Container>
+      <HeaderHome />
+    </Container>
+  );
 };
 
 export { Home };

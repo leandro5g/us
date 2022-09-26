@@ -1,3 +1,5 @@
+import { RFValue } from "../libs/react-native-responsive-font-size";
+
 export const THEME = {
   COLORS: {
     PRIMARY: "#8257e5",
@@ -15,5 +17,9 @@ export const THEME = {
     MEDIUM: "Inter_500Medium",
     SEMIBOLD: "Inter_600SemiBold",
     BOLD: "Inter_700Bold",
+  },
+
+  METRICS: {
+    PADDING: RFValue(20),
   },
 };
