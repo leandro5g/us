@@ -37,7 +37,7 @@ const HeaderHome: React.FC = () => {
       </Header>
 
       <Content>
-        <Description>
+        <Description isSpam>
           Sinta-se seguro e desabafe sobre o que você precisar 💜
         </Description>
       </Content>

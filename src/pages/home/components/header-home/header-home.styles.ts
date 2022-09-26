@@ -12,7 +12,7 @@ export const Header = styled.View`
 
 export const Content = styled.View`
   margin-top: ${({ theme }) => theme.METRICS.PADDING / 2}px;
-  width: 60%;
+  width: 64%;
 `;
 
 export const ContainerInfo = styled.View`

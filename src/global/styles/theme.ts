@@ -9,6 +9,7 @@ export const THEME = {
     CAPTION_500: "#71717A",
     CAPTION_400: "#A1A1AA",
     CAPTION_300: "#D4D4D8",
+    BORDER: "#31313A",
     ALERT: "#F87171",
   },
 
@@ -17,6 +18,12 @@ export const THEME = {
     MEDIUM: "Inter_500Medium",
     SEMIBOLD: "Inter_600SemiBold",
     BOLD: "Inter_700Bold",
+  },
+
+  FONTSIZES: {
+    SM: RFValue(16),
+    SM2: RFValue(18),
+    MD: RFValue(22),
   },
 
   METRICS: {
