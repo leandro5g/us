@@ -2,12 +2,13 @@ import React from "react";
 
 import { HeaderHome } from "./components/header-home/header-home.screen";
 import { CardPost } from "../../components/cards/card-post/card-post.component";
+import { ContainerBackground } from "../../components/utils/container-background/container-background.component";
 
-import { Container, Scroll } from "./home.styles";
+import { Scroll } from "./home.styles";
 
 const Home: React.FC = () => {
   return (
-    <Container>
+    <ContainerBackground>
       <HeaderHome />
 
       <Scroll showsVerticalScrollIndicator={false}>
@@ -17,7 +18,7 @@ const Home: React.FC = () => {
         <CardPost />
         <CardPost />
       </Scroll>
-    </Container>
+    </ContainerBackground>
   );
 };
 
