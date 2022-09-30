@@ -5,12 +5,14 @@ export const THEME = {
     PRIMARY: "#8257e5",
     BACKGROUND: "#121214",
     SHAPE: "#202024",
+    SHAPE_LIGHT: "#303033",
     TEXT: "#FFFFFF",
     CAPTION_500: "#71717A",
     CAPTION_400: "#A1A1AA",
     CAPTION_300: "#D4D4D8",
     BORDER: "#31313A",
     ALERT: "#F87171",
+    BG_RGBA: "rgba(0,0,0,0.5)",
   },
 
   FONTS: {
@@ -27,6 +29,7 @@ export const THEME = {
   },
 
   METRICS: {
-    PADDING: RFValue(20),
+    PADDING: RFValue(24),
+    PADDING_VERTICAL: RFValue(20),
   },
 };
