@@ -9,3 +9,18 @@ export const Container = styled.View`
   justify-content: center;
   padding: ${({ theme }) => theme.METRICS.PADDING}px;
 `;
+
+export const ContainerFeeling = styled.View`
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const ButtonFeeling = styled.TouchableOpacity`
+  height: ${({ theme }) => theme.METRICS.BUTTON_SIZE}px;
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
+  border-radius: ${({ theme }) => theme.METRICS.BORDER_RADIUS}px;
+  margin-left: ${RFValue(4)}px;
+  justify-content: center;
+  align-items: center;
+  padding: 0px ${({ theme }) => theme.METRICS.PADDING}px;
+`;

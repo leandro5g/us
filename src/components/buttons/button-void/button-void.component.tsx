@@ -6,7 +6,7 @@ import { Button } from "./button-void.styles";
 type ButtonVoidProps = TouchableOpacityProps;
 
 const ButtonVoid: React.FC<ButtonVoidProps> = ({ ...rest }) => {
-  return <Button {...rest}></Button>;
+  return <Button activeOpacity={0.9} {...rest}></Button>;
 };
 
 export { ButtonVoid };

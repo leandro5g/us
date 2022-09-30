@@ -1,4 +1,5 @@
 import React from "react";
+import { ModalProps } from "react-native";
 import { useTheme } from "styled-components";
 import { RFValue } from "../../../global/libs/react-native-responsive-font-size";
 
@@ -10,19 +11,24 @@ import { SafeArea } from "../../utils/safe-area/safe-area.component";
 
 import { Container, Modal, HeaderModal, Content } from "./modal-default.styles";
 
-type ModalDefaultProps = {
+interface ModalDefaultProps extends ModalProps {
   children: React.ReactNode;
-};
+  onClose(): void;
+}
 
-const ModalDefault: React.FC<ModalDefaultProps> = ({ children }) => {
+const ModalDefault: React.FC<ModalDefaultProps> = ({
+  children,
+  onClose,
+  ...rest
+}) => {
   const { COLORS } = useTheme();
 
   return (
-    <Modal transparent>
+    <Modal transparent animationType="slide" onRequestClose={onClose} {...rest}>
       <SafeArea>
         <Container>
           <HeaderModal>
-            <ButtonVoid>
+            <ButtonVoid onPress={onClose}>
               <AntDesign
                 style={{ marginRight: RFValue(20) }}
                 name="close"

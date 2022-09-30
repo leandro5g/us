@@ -26,10 +26,13 @@ export const THEME = {
     SM: RFValue(16),
     SM2: RFValue(18),
     MD: RFValue(22),
+    MD2: RFValue(24),
   },
 
   METRICS: {
     PADDING: RFValue(24),
     PADDING_VERTICAL: RFValue(20),
+    BUTTON_SIZE: RFValue(56),
+    BORDER_RADIUS: RFValue(6),
   },
 };

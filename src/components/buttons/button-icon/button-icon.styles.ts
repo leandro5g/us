@@ -6,11 +6,11 @@ type ContainerProps = {
 };
 
 export const Container = styled.View<ContainerProps>`
-  height: ${RFValue(56)}px;
-  width: ${RFValue(56)}px;
+  height: ${({ theme }) => theme.METRICS.BUTTON_SIZE}px;
+  width: ${({ theme }) => theme.METRICS.BUTTON_SIZE}px;
   background-color: ${({ theme, isPrimary }) =>
     isPrimary ? theme.COLORS.PRIMARY : theme.COLORS.BACKGROUND};
-  border-radius: ${RFValue(8)}px;
+  border-radius: ${({ theme }) => theme.METRICS.BORDER_RADIUS}px;
   justify-content: center;
   align-items: center;
 `;

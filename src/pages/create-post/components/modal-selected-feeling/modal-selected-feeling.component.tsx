@@ -6,9 +6,17 @@ import { Scroll } from "../../../../components/utils/scroll/scroll.component";
 
 import { Container, Content } from "./modal-selected-feeling.styles";
 
-const ModalSelectedFeeling: React.FC = () => {
+type ModalSelectedFeelingProps = {
+  isVisible: boolean;
+  onClose(): void;
+};
+
+const ModalSelectedFeeling: React.FC<ModalSelectedFeelingProps> = ({
+  isVisible,
+  onClose,
+}) => {
   return (
-    <ModalDefault>
+    <ModalDefault visible={isVisible} onClose={onClose}>
       <Container>
         <Content>
           <Scroll>
