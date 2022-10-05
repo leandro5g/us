@@ -14,6 +14,7 @@ import {
   ContainerInfo,
   Header,
 } from "./header-home.styles";
+import { ModalDefault } from "../../../../components/modals/modal-default/modal-default.component";
 
 const HeaderHome: React.FC = () => {
   const { COLORS } = useTheme();

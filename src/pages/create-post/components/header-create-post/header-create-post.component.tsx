@@ -8,14 +8,16 @@ import { Title } from "../../../../components/texts/title/title.component";
 import { ButtonVoid } from "../../../../components/buttons/button-void/button-void.component";
 
 import { Container, WrappIcon } from "./header-create-post.styles";
+import { useNavigation } from "@react-navigation/native";
 
 const HeaderCreatePost: React.FC = () => {
   const { COLORS } = useTheme();
+  const { goBack } = useNavigation();
 
   return (
     <Container>
       <WrappIcon>
-        <ButtonVoid>
+        <ButtonVoid onPress={goBack}>
           <Feather name="chevron-left" size={RFValue(30)} color={COLORS.TEXT} />
         </ButtonVoid>
       </WrappIcon>

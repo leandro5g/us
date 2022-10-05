@@ -20,6 +20,8 @@ import {
 const CardPost: React.FC = () => {
   const { COLORS } = useTheme();
 
+  console.log("ABRIU O MODAL");
+
   return (
     <Container>
       <HeaderCardPost>

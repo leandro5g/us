@@ -8,11 +8,13 @@ import { AntDesign } from "@expo/vector-icons";
 import { Home } from "../../pages/home/home.screen";
 import { ButtonTab } from "./components/button-tab/button-tab.component";
 import { Profile } from "../../pages/profile/profile.screen";
+import { useNavigation } from "@react-navigation/native";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
 const TabRoutes: React.FC = () => {
   const { COLORS } = useTheme();
+  const { navigate } = useNavigation();
 
   return (
     <Navigator
@@ -41,6 +43,12 @@ const TabRoutes: React.FC = () => {
         options={{
           tabBarIcon: () => <ButtonTab />,
         }}
+        listeners={() => ({
+          tabPress: (event) => {
+            event.preventDefault();
+            navigate("CreatePost" as never);
+          },
+        })}
       />
       <Screen
         name="Profile"
