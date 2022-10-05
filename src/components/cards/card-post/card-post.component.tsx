@@ -34,7 +34,7 @@ const CardPost: React.FC = () => {
           </ContentInfo>
         </ContentHeader>
 
-        <Emoji>🥹</Emoji>
+        <Emoji>😕</Emoji>
       </HeaderCardPost>
 
       <Content>

@@ -10,7 +10,7 @@ const MyApp: React.FC = () => {
   return (
     <ThemeProvider theme={THEME}>
       <StatusBar translucent backgroundColor="transparent" style="light" />
-      <CreatePost />
+      <Routes />
     </ThemeProvider>
   );
 };

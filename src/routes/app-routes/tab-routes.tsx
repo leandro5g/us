@@ -7,6 +7,7 @@ import { AntDesign } from "@expo/vector-icons";
 
 import { Home } from "../../pages/home/home.screen";
 import { ButtonTab } from "./components/button-tab/button-tab.component";
+import { Profile } from "../../pages/profile/profile.screen";
 
 const { Navigator, Screen } = createBottomTabNavigator();
 
@@ -48,7 +49,7 @@ const TabRoutes: React.FC = () => {
             <AntDesign name="user" size={RFValue(30)} color={color} />
           ),
         }}
-        component={Home}
+        component={Profile}
       />
     </Navigator>
   );
