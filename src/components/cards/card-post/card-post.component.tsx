@@ -5,6 +5,7 @@ import { Feather } from "@expo/vector-icons";
 
 import { Avatar } from "../../avatar/avatar.component";
 import { Description } from "../../texts/description/description.component";
+import { Emoji } from "../../texts/emoji/emoji.component";
 
 import {
   Container,
@@ -13,7 +14,6 @@ import {
   HeaderCardPost,
   ContentInfo,
   NameUser,
-  Emoji,
   ContentHeader,
 } from "./card-post.styles";
 

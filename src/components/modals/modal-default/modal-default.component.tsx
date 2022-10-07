@@ -12,6 +12,7 @@ import { SafeArea } from "../../utils/safe-area/safe-area.component";
 import { Container, Modal, HeaderModal, Content } from "./modal-default.styles";
 
 interface ModalDefaultProps extends ModalProps {
+  title: string;
   children: React.ReactNode;
   onClose(): void;
 }
@@ -19,6 +20,7 @@ interface ModalDefaultProps extends ModalProps {
 const ModalDefault: React.FC<ModalDefaultProps> = ({
   children,
   onClose,
+  title,
   ...rest
 }) => {
   const { COLORS } = useTheme();
@@ -37,7 +39,7 @@ const ModalDefault: React.FC<ModalDefaultProps> = ({
               />
             </ButtonVoid>
 
-            <Title>O que você está sentindo?</Title>
+            <Title>{title}</Title>
           </HeaderModal>
 
           <Content>{children}</Content>

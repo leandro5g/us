@@ -31,10 +31,6 @@ export const NameUser = styled.Text`
   font-family: ${({ theme }) => theme.FONTS.SEMIBOLD};
 `;
 
-export const Emoji = styled.Text`
-  font-size: ${RFValue(30)}px;
-`;
-
 export const Content = styled.View`
   padding: ${({ theme }) => theme.METRICS.PADDING}px;
   border-top-width: ${RFValue(1)}px;
