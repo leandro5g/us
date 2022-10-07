@@ -1,4 +1,8 @@
 import { RFValue } from "../libs/react-native-responsive-font-size";
+import { StatusBar } from "react-native";
+import { isIphoneX, getStatusBarHeight } from "react-native-iphone-x-helper";
+
+const isIphone = isIphoneX();
 
 export const THEME = {
   COLORS: {
@@ -25,6 +29,7 @@ export const THEME = {
   FONTSIZES: {
     SM: RFValue(16),
     SM2: RFValue(18),
+    SM3: RFValue(20),
     MD: RFValue(22),
     MD2: RFValue(24),
   },
@@ -34,5 +39,8 @@ export const THEME = {
     PADDING_VERTICAL: RFValue(20),
     BUTTON_SIZE: RFValue(56),
     BORDER_RADIUS: RFValue(6),
+    MARGIN_STATUS_BAR: isIphone
+      ? getStatusBarHeight()
+      : StatusBar.currentHeight,
   },
 };

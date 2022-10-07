@@ -5,6 +5,7 @@ import { Text } from "./title.styles";
 
 interface TitleProps extends TextProps {
   isSub?: boolean;
+  isLarge?: boolean;
 }
 
 const Title: React.FC<TitleProps> = ({ ...rest }) => {
