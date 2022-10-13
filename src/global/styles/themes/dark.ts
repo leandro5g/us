@@ -1,10 +1,10 @@
-import { RFValue } from "../libs/react-native-responsive-font-size";
+import { RFValue } from "../../libs/react-native-responsive-font-size";
 import { StatusBar } from "react-native";
 import { isIphoneX, getStatusBarHeight } from "react-native-iphone-x-helper";
 
 const isIphone = isIphoneX();
 
-export const THEME = {
+export const THEME_DARK = {
   COLORS: {
     PRIMARY: "#8257e5",
     BACKGROUND: "#121214",
