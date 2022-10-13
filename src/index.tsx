@@ -5,12 +5,13 @@ import { THEME } from "./global/styles/theme";
 
 import { Routes } from "./routes";
 import { SignIn } from "./pages/sign-in/sign-in.screen";
+import { SignUp } from "./pages/sign-up/sign-up.screen";
 
 const MyApp: React.FC = () => {
   return (
     <ThemeProvider theme={THEME}>
       <StatusBar translucent backgroundColor="transparent" style="light" />
-      <SignIn />
+      <SignUp />
     </ThemeProvider>
   );
 };
