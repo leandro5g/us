@@ -6,7 +6,11 @@
   "extends": [
     "plugin:react/recommended",
     "standard-with-typescript",
-    "prettier"
+    "prettier",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
   ],
   "overrides": [],
   "parserOptions": {
@@ -21,6 +25,7 @@
     "no-alert": "error",
     "no-console": "warn",
     "no-duplicate-imports": "error",
-    "sort-imports": "error"
+    "sort-imports": "error",
+    "prettier/prettier": "error"
   }
 }

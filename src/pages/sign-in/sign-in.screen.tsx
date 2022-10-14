@@ -8,7 +8,7 @@ import {
   Container,
   Content,
   SignInSvg,
-  DescriptionLogin,
+  DescriptionLogin
 } from "./sign-in.styles";
 
 const SignIn: React.FC = () => {

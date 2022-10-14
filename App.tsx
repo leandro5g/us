@@ -6,7 +6,7 @@ import {
   Inter_500Medium,
   Inter_600SemiBold,
   Inter_700Bold,
-  useFonts,
+  useFonts
 } from "@expo-google-fonts/inter";
 
 import { MyApp } from "./src";
@@ -18,7 +18,7 @@ export default function App() {
     Inter_400Regular,
     Inter_500Medium,
     Inter_600SemiBold,
-    Inter_700Bold,
+    Inter_700Bold
   });
 
   if (fontIsLoaded) {
