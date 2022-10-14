@@ -4,19 +4,19 @@ import { RFValue } from '../../global/libs/react-native-responsive-font-size';
 import { FontAwesome5 } from '@expo/vector-icons';
 
 export const Container = styled.View`
-    flex-direction: row;
-    align-items: center;
+  flex-direction: row;
+  align-items: center;
 `;
 
 export const TitleLogo = styled.Text`
-    color: ${({ theme }) => theme.COLORS.TEXT};
-    font-size: ${RFValue(36)}px;
-    font-family: ${({ theme }) => theme.FONTS.BOLD};
-    margin-left: ${RFValue(8)}px;
+  color: ${({ theme }) => theme.COLORS.TEXT};
+  font-size: ${RFValue(36)}px;
+  font-family: ${({ theme }) => theme.FONTS.BOLD};
+  margin-left: ${RFValue(8)}px;
 `;
 
 export const IconUsers = styled(FontAwesome5).attrs(({ theme }) => ({
-    name: 'users',
-    size: RFValue(30),
-    color: theme.COLORS.TEXT
+  name: 'users',
+  size: RFValue(30),
+  color: theme.COLORS.TEXT
 }))``;

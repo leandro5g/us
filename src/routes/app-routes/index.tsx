@@ -7,22 +7,22 @@ import { CreatePost } from '../../pages/create-post/create-post.screen';
 const { Navigator, Screen } = createNativeStackNavigator();
 
 const AppRoutes: React.FC = () => {
-    return (
-        <Navigator
-            screenOptions={{
-                headerShown: false
-            }}
-        >
-            <Screen name="TabRoutes" component={TabRoutes} />
-            <Screen
-                options={{
-                    animation: 'slide_from_bottom'
-                }}
-                name="CreatePost"
-                component={CreatePost}
-            />
-        </Navigator>
-    );
+  return (
+    <Navigator
+      screenOptions={{
+        headerShown: false
+      }}
+    >
+      <Screen name="TabRoutes" component={TabRoutes} />
+      <Screen
+        options={{
+          animation: 'slide_from_bottom'
+        }}
+        name="CreatePost"
+        component={CreatePost}
+      />
+    </Navigator>
+  );
 };
 
 export { AppRoutes };

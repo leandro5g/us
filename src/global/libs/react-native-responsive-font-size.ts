@@ -6,5 +6,5 @@ const { width, height } = Dimensions.get('screen');
 const SCREEN_HEIGHT = height > width ? height : width;
 
 export function RFValue(value: number) {
-    return RF(value, SCREEN_HEIGHT);
+  return RF(value, SCREEN_HEIGHT);
 }

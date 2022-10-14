@@ -4,25 +4,25 @@ import { Description } from '../../components/texts/description/description.comp
 import { RFValue } from '../../global/libs/react-native-responsive-font-size';
 
 export const Container = styled.View`
-    flex: 1;
-    background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
-    padding-top: ${RFValue(10)}px;
+  flex: 1;
+  background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
+  padding-top: ${RFValue(10)}px;
 `;
 
 export const SignInSvg = styled(LoginSvg).attrs({
-    height: RFValue(320),
-    width: RFValue(320)
+  height: RFValue(320),
+  width: RFValue(320)
 })`
-    align-self: center;
+  align-self: center;
 `;
 
 export const Content = styled.View`
-    flex: 1;
-    padding: ${({ theme }) => theme.METRICS.PADDING}px;
+  flex: 1;
+  padding: ${({ theme }) => theme.METRICS.PADDING}px;
 `;
 
 export const DescriptionLogin = styled(Description).attrs({
-    isSpam: true
+  isSpam: true
 })`
-    margin: ${RFValue(24)}px 0px;
+  margin: ${RFValue(24)}px 0px;
 `;

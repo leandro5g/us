@@ -1,16 +1,16 @@
-import React from "react";
-import { ThemeProvider } from "styled-components/native";
+import React from 'react';
+import { ThemeProvider } from 'styled-components/native';
 
-import { THEME_DARK } from "../themes/dark";
+import { THEME_DARK } from '../themes/dark';
 
 type ThemeProviderStyleProps = {
-  children: React.ReactNode;
+    children: React.ReactNode;
 };
 
 const ThemeProviderStyle: React.FC<ThemeProviderStyleProps> = ({
-  children,
+    children
 }) => {
-  return <ThemeProvider theme={THEME_DARK}>{children}</ThemeProvider>;
+    return <ThemeProvider theme={THEME_DARK}>{children}</ThemeProvider>;
 };
 
 export { ThemeProviderStyle };
