@@ -9,7 +9,7 @@
         "web": "expo start --web",
         "test": "jest",
         "lint": "tsc --noEmit && eslint --ext .ts,.tsx",
-        "prettier:write": "npx prettier --write **/*.{ts,tsx,json}"
+        "format": "npx prettier --write **/*.{ts,tsx,json}"
     },
     "jest": {
         "preset": "jest-expo",
