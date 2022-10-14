@@ -14,5 +14,9 @@
         "sourceType": "module"
     },
     "plugins": ["react", "prettier"],
-    "rules": {}
+    "rules": {
+        "no-unused-vars": "error",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn"
+    }
 }
