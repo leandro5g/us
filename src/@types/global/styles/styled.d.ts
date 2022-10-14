@@ -1,9 +1,9 @@
 import "styled-components";
 
-import { THEME } from "../../../global/styles/themes/dark";
+import { THEME_DARK } from "../../../global/styles/themes/dark";
 
 declare module "styled-components" {
-  type ThemeType = typeof THEME;
+  type ThemeType = typeof THEME_DARK;
 
   export interface DefaultTheme extends ThemeType {}
 }

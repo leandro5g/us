@@ -20,13 +20,13 @@ const Profile: React.FC = () => {
       <Content>
         <AvatarUser />
 
-        <InputDefault placeholder="Seu Nome" />
-        <InputDefault placeholder="Seu E-mail" />
+        <InputDefault icon="user" placeholder="Seu Nome" />
+        <InputDefault icon="mail" placeholder="Seu E-mail" />
 
         <ContainerPassword>
           <TextLabelPassword>Alterar senha</TextLabelPassword>
-          <InputDefault placeholder="Senha antiga" />
-          <InputDefault placeholder="Nova senha" />
+          <InputDefault icon="lock" placeholder="Senha antiga" />
+          <InputDefault icon="lock" placeholder="Nova senha" />
         </ContainerPassword>
 
         <ButtonPrimary textButton="Atualizar" />

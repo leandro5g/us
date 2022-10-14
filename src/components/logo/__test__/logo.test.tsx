@@ -6,10 +6,12 @@ import { ThemeProviderStyle } from "../../../global/styles/providers/theme-provi
 
 describe("Logo", () => {
   it("Should be able to render component", () => {
-    render(
+    const { debug } = render(
       <ThemeProviderStyle>
         <Logo />
       </ThemeProviderStyle>
     );
+
+    debug();
   });
 });

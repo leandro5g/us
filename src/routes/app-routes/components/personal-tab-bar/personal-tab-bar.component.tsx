@@ -6,8 +6,6 @@ import { Container } from "./personal-tab-bar.styles";
 type PersonalTabBarProps = BottomTabBarProps;
 
 const PersonalTabBar: React.FC<PersonalTabBarProps> = ({ insets }) => {
-  console.log("state", insets, "state");
-
   return <Container />;
 };
 
