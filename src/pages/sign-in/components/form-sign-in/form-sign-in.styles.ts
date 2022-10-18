@@ -11,3 +11,7 @@ export const ButtonPasswordRecovery = styled(ButtonVoid)`
   margin-top: ${RFValue(10)}px;
   margin-bottom: ${({ theme }) => theme.METRICS.PADDING_VERTICAL}px;
 `;
+
+export const ButtonSignUp = styled(ButtonVoid)`
+  margin-top: ${({ theme }) => theme.METRICS.PADDING_VERTICAL}px;
+`;

@@ -10,7 +10,7 @@ const AuthRoutes: React.FC = () => {
   return (
     <Navigator
       screenOptions={{
-        headerShown: false,
+        headerShown: false
       }}
     >
       <Screen name="SignIn" component={SignIn} />

@@ -1,6 +1,6 @@
-import styled from 'styled-components/native';
-import { Description } from '../../components/texts/description/description.component';
-import { RFValue } from '../../global/libs/react-native-responsive-font-size';
+import styled from "styled-components/native";
+import { Description } from "../../components/texts/description/description.component";
+import { RFValue } from "../../global/libs/react-native-responsive-font-size";
 
 export const Container = styled.View`
   flex: 1;
@@ -11,7 +11,7 @@ export const Container = styled.View`
 export const DescriptionRegister = styled(Description).attrs({
   isSpam: true
 })`
-  margin: ${RFValue(24)}px 0px;
+  margin-top: ${({ theme }) => theme.METRICS.PADDING_VERTICAL}px;
 `;
 
 export const ButtonIcon = styled.TouchableOpacity`

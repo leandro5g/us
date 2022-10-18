@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
 
 export const Container = styled.TouchableOpacity`
   width: 100%;
@@ -9,8 +9,13 @@ export const Container = styled.TouchableOpacity`
   align-items: center;
 `;
 
-export const ButtonText = styled.Text`
+export const TextButtonPrimary = styled.Text`
   color: ${({ theme }) => theme.COLORS.TEXT};
   font-size: ${({ theme }) => theme.FONTSIZES.SM2}px;
   font-family: ${({ theme }) => theme.FONTS.BOLD};
 `;
+
+export const Load = styled.ActivityIndicator.attrs(({ theme }) => ({
+  size: "small",
+  color: theme.COLORS.TEXT
+}))``;

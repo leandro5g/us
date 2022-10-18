@@ -1,23 +1,42 @@
-import React from "react";
-import { RFValue } from "../../../../global/libs/react-native-responsive-font-size";
+import React, { useCallback } from "react";
+import { useNavigation } from "@react-navigation/native";
+import { useForm } from "react-hook-form";
 
 import { ButtonPrimary } from "../../../../components/buttons/button-primary/button-primary.component";
-import { ButtonVoid } from "../../../../components/buttons/button-void/button-void.component";
 import { InputDefault } from "../../../../components/forms/input-default/input-default.component";
 import { Description } from "../../../../components/texts/description/description.component";
 
 import {
   Container,
   Content,
-  ButtonPasswordRecovery
+  ButtonPasswordRecovery,
+  ButtonSignUp
 } from "./form-sign-in.styles";
 
 const FormSignIn: React.FC = () => {
+  const { navigate } = useNavigation();
+  const { control } = useForm();
+
+  const handleNavigate = useCallback(() => {
+    navigate("SignUp" as never);
+  }, []);
+
   return (
     <Container>
       <Content>
-        <InputDefault icon="mail" placeholder="email@email.com" />
-        <InputDefault notMargin icon="lock" placeholder="Senha" />
+        <InputDefault
+          name="email"
+          control={control}
+          icon="mail"
+          placeholder="email@email.com"
+        />
+        <InputDefault
+          name="password"
+          control={control}
+          notMargin
+          icon="lock"
+          placeholder="Senha"
+        />
       </Content>
 
       <ButtonPasswordRecovery>
@@ -26,12 +45,12 @@ const FormSignIn: React.FC = () => {
 
       <ButtonPrimary textButton="Entrar" />
 
-      <ButtonPasswordRecovery>
+      <ButtonSignUp onPress={handleNavigate}>
         <Description>
           Nao possui uma conta?{" "}
           <Description isAction>Cadastre-se aqui</Description>
         </Description>
-      </ButtonPasswordRecovery>
+      </ButtonSignUp>
     </Container>
   );
 };

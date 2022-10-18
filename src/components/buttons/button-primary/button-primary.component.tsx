@@ -1,15 +1,25 @@
 import React from "react";
+import { TouchableOpacityProps } from "react-native";
 
-import { Container, ButtonText } from "./button-primary.styles";
+import { Container, TextButtonPrimary, Load } from "./button-primary.styles";
 
-type ButtonPrimaryProps = {
+interface ButtonPrimaryProps extends TouchableOpacityProps {
   textButton: string;
-};
+  isLoading?: boolean;
+}
 
-const ButtonPrimary: React.FC<ButtonPrimaryProps> = ({ textButton }) => {
+const ButtonPrimary: React.FC<ButtonPrimaryProps> = ({
+  textButton,
+  isLoading,
+  ...rest
+}) => {
   return (
-    <Container>
-      <ButtonText>{textButton}</ButtonText>
+    <Container activeOpacity={0.9} {...rest}>
+      {isLoading ? (
+        <Load />
+      ) : (
+        <TextButtonPrimary>{textButton}</TextButtonPrimary>
+      )}
     </Container>
   );
 };
