@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from "react";
-import { HttpClient } from "../../@types/global/clients/http/http.client";
+import { HttpClient } from "../../@types/clients/http.client";
 import { httpClientPost } from "../../global/clients/http";
 
 type FetchProps = HttpClient.PostParams;

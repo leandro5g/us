@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from "react";
-import { ClientHttp } from "../../@types/global/clients/http/client-http";
+import { HttpClient } from "../../@types/clients/http.client";
 import { httpClientGet } from "../../global/clients/http";
 
-type SubmitProps = ClientHttp.GetParams;
+type SubmitProps = HttpClient.GetParams;
 
 export function useFetch<T>() {
   const [isLoading, setIsLoading] = useState(true);

@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import { ClientHttp } from "../../../@types/global/clients/http/client-http";
+import { HttpClient } from "../../../@types/clients/http.client";
 
 export const client = axios.create({
   baseURL: "http://localhost:3333",
@@ -27,7 +27,7 @@ export async function httpClientGet<T>({
   path,
   options,
   params
-}: ClientHttp.GetParams): Promise<T> {
+}: HttpClient.GetParams): Promise<T> {
   const response = await client.get<T>(path, {
     ...options,
     params
@@ -40,7 +40,7 @@ export async function httpClientPost<T>({
   path,
   options,
   body
-}: ClientHttp.PostParams): Promise<T> {
+}: HttpClient.PostParams): Promise<T> {
   const response = await client.post<T>(path, body, {
     ...options
   });

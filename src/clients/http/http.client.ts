@@ -1,5 +1,5 @@
 import axios, { AxiosError } from "axios";
-import { HttpClient } from "../../@types/clients/http/http.client";
+import { HttpClient } from "../../@types/clients/http.client";
 
 export const client = axios.create({
   baseURL: "http://localhost:3333",
