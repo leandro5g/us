@@ -31,9 +31,6 @@ export function useSignUp() {
           return "OK";
         }
       } catch (error) {
-        alert;
-
-        console.log(error);
         showToast({
           message:
             "Ocorreu um erro inesperado ao tentar realizar seu cadastro.",

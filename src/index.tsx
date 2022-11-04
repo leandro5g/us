@@ -1,6 +1,7 @@
 import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { ToastProvider } from "react-native-toast-notifications";
+import { AuthContexts } from "./contexts/auth-contexts";
 
 import { Routes } from "./routes";
 
@@ -12,7 +13,9 @@ const MyApp: React.FC = () => {
     <ThemeProviderStyle>
       <ToastProvider offset={THEME_DARK.METRICS.OFF_SET_TOP}>
         <StatusBar translucent backgroundColor="transparent" style="light" />
-        <Routes />
+        <AuthContexts>
+          <Routes />
+        </AuthContexts>
       </ToastProvider>
     </ThemeProviderStyle>
   );

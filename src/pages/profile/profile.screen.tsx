@@ -9,7 +9,7 @@ import { AvatarUser } from "./components/avatar-user/avatar-user.components";
 import {
   Content,
   ContainerPassword,
-  TextLabelPassword,
+  TextLabelPassword
 } from "./profile.styles";
 
 const Profile: React.FC = () => {
@@ -20,14 +20,14 @@ const Profile: React.FC = () => {
       <Content>
         <AvatarUser />
 
-        <InputDefault icon="user" placeholder="Seu Nome" />
+        {/* <InputDefault icon="user" placeholder="Seu Nome" />
         <InputDefault icon="mail" placeholder="Seu E-mail" />
 
         <ContainerPassword>
           <TextLabelPassword>Alterar senha</TextLabelPassword>
           <InputDefault icon="lock" placeholder="Senha antiga" />
           <InputDefault icon="lock" placeholder="Nova senha" />
-        </ContainerPassword>
+        </ContainerPassword> */}
 
         <ButtonPrimary textButton="Atualizar" />
       </Content>

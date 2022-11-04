@@ -1,0 +1,7 @@
+export enum CodeStatusError {
+  USER_NOT_FOUND = 1,
+  EMAIL_PASSWORD_NOT_MATCH = 2,
+  ALREADY_EMAIL = 3,
+  BAD_REQUEST = 4,
+  INTERNAL_ERROR = 5
+}

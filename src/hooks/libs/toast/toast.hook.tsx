@@ -10,10 +10,12 @@ type ShowTostProps = {
 
 function useToastNotification() {
   const toast = useToast();
-  const { COLORS, METRICS } = useTheme();
+  const { COLORS } = useTheme();
 
   const showToast = useCallback(
     ({ message, duration = 3000, type }: ShowTostProps) => {
+      toast?.hideAll();
+
       toast.show(message, {
         placement: "top",
         duration,
@@ -21,6 +23,8 @@ function useToastNotification() {
         type,
         dangerColor: COLORS.ALERT
       });
+
+      
     },
     [toast]
   );

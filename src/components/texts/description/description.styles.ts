@@ -1,5 +1,5 @@
-import styled, { css } from 'styled-components/native';
-import { RFValue } from '../../../global/libs/react-native-responsive-font-size';
+import styled, { css } from "styled-components/native";
+import { RFValue } from "../../../global/libs/react-native-responsive-font-size";
 
 type DescriptionProps = {
   isSpam: boolean;
@@ -16,7 +16,7 @@ export const styleIsHastag = css`
 export const styleIsAction = css`
   font-family: ${({ theme }) => theme.FONTS.BOLD};
   color: ${({ theme }) => theme.COLORS.PRIMARY};
-  font-size: ${({ theme }) => theme.FONTSIZES.SM3}px;
+  font-size: ${({ theme }) => theme.FONTSIZES.SM2}px;
 `;
 
 export const styleIsSpam = css`

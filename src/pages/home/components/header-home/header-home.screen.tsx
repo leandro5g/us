@@ -14,7 +14,7 @@ import {
   Container,
   Content,
   ContainerInfo,
-  Header,
+  Header
 } from "./header-home.styles";
 
 const HeaderHome: React.FC = () => {
@@ -47,7 +47,7 @@ const HeaderHome: React.FC = () => {
       </Header>
 
       <Content>
-        <Description isSpam>
+        <Description>
           Sinta-se seguro e desabafe sobre o que você precisar 💜
         </Description>
       </Content>

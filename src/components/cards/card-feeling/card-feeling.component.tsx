@@ -10,16 +10,22 @@ import {
   Container,
   HeaderCardFeeling,
   TitleCardFeeling,
-  DescriptionCardFeeling,
+  DescriptionCardFeeling
 } from "./card-feeling.styles";
 
-const CardFeeling: React.FC = () => {
+type CardFeelingProps = {
+  data: Feeling.FeelingModel;
+};
+
+const CardFeeling: React.FC<CardFeelingProps> = ({ data }) => {
   const { COLORS } = useTheme();
 
   return (
     <Container>
       <HeaderCardFeeling>
-        <TitleCardFeeling>🥲 Estou me sentindo Triste</TitleCardFeeling>
+        <TitleCardFeeling>
+          {data?.emoji} Estou me sentindo {data?.title}
+        </TitleCardFeeling>
 
         <ButtonVoid>
           <Feather

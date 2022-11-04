@@ -1,23 +1,20 @@
 import React, { useCallback, useState } from "react";
-import { HttpClient } from "../../@types/clients/http/http.client";
-import { httpClientPost } from "../../clients/http";
+import { ClientHttp } from "../../@types/global/clients/http/client-http";
+import { httpClientGet } from "../../global/clients/http";
 
-type SubmitProps = {
-  data: HttpClient.PostParams;
-};
+type SubmitProps = ClientHttp.GetParams;
 
 export function useFetch<T>() {
   const [isLoading, setIsLoading] = useState(true);
 
   const handleFetch = useCallback(
-    async ({ data }: SubmitProps) => {
+    async ({ path, options, params }: SubmitProps) => {
       try {
-        const response = await httpClientPost<T>({
-          path: data?.path,
-          body: data?.body,
-          options: data?.options
+        const response = await httpClientGet<T>({
+          path,
+          options,
+          params
         });
-
         return response;
       } catch (error) {
         console.log(error);
@@ -25,7 +22,7 @@ export function useFetch<T>() {
         setIsLoading(false);
       }
     },
-    [httpClientPost]
+    [httpClientGet]
   );
 
   return {

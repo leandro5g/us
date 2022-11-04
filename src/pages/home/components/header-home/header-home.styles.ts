@@ -1,4 +1,5 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
+import { RFValue } from "../../../../global/libs/react-native-responsive-font-size";
 
 export const Container = styled.View`
   padding: ${({ theme }) => theme.METRICS.PADDING}px;
@@ -11,7 +12,6 @@ export const Header = styled.View`
 `;
 
 export const Content = styled.View`
-  margin-top: ${({ theme }) => theme.METRICS.PADDING / 2}px;
   width: 64%;
 `;
 
