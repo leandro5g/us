@@ -1,5 +1,6 @@
-import styled from 'styled-components/native';
-import { RFValue } from '../../../../global/libs/react-native-responsive-font-size';
+import styled from "styled-components/native";
+import { ButtonVoid } from "../../../../components/buttons/button-void/button-void.component";
+import { RFValue } from "../../../../global/libs/react-native-responsive-font-size";
 
 export const Container = styled.View`
   background-color: ${({ theme }) => theme.COLORS.SHAPE};
@@ -15,12 +16,11 @@ export const ContainerFeeling = styled.View`
   align-items: center;
 `;
 
-export const ButtonFeeling = styled.TouchableOpacity`
-  height: ${({ theme }) => theme.METRICS.BUTTON_SIZE}px;
-  background-color: ${({ theme }) => theme.COLORS.BACKGROUND};
-  border-radius: ${({ theme }) => theme.METRICS.BORDER_RADIUS}px;
+export const ButtonFeeling = styled(ButtonVoid)`
   margin-left: ${RFValue(4)}px;
-  justify-content: center;
-  align-items: center;
-  padding: 0px ${({ theme }) => theme.METRICS.PADDING}px;
+`;
+
+export const Text = styled.Text`
+  color: ${({ theme }) => theme.COLORS.TEXT};
+  font-size: ${RFValue(16)}px;
 `;

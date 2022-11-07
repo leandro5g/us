@@ -15,16 +15,18 @@ import {
 
 type CardFeelingProps = {
   data: Feeling.FeelingModel;
+  onPress(feeling: Feeling.FeelingModel): void;
 };
 
-const CardFeeling: React.FC<CardFeelingProps> = ({ data }) => {
+const CardFeeling: React.FC<CardFeelingProps> = ({ data, onPress }) => {
   const { COLORS } = useTheme();
 
   return (
-    <Container>
+    <Container onPress={() => onPress(data)}>
       <HeaderCardFeeling>
         <TitleCardFeeling>
-          {data?.emoji} Estou me sentindo {data?.title}
+          {data?.emoji}
+          {"   " + data?.title}
         </TitleCardFeeling>
 
         <ButtonVoid>
@@ -36,10 +38,7 @@ const CardFeeling: React.FC<CardFeelingProps> = ({ data }) => {
         </ButtonVoid>
       </HeaderCardFeeling>
 
-      <DescriptionCardFeeling>
-        O Google Tradutor é um serviço virtual gratuito da subsidiaria Google da
-        Alphabet Inc.
-      </DescriptionCardFeeling>
+      <DescriptionCardFeeling>{data?.description}</DescriptionCardFeeling>
     </Container>
   );
 };

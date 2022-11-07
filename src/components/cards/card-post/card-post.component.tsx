@@ -14,13 +14,15 @@ import {
   HeaderCardPost,
   ContentInfo,
   NameUser,
-  ContentHeader,
+  ContentHeader
 } from "./card-post.styles";
 
-const CardPost: React.FC = () => {
-  const { COLORS } = useTheme();
+type CardPostProps = {
+  data: Post.PostType;
+};
 
-  console.log("ABRIU O MODAL");
+const CardPost: React.FC<CardPostProps> = ({ data }) => {
+  const { COLORS } = useTheme();
 
   return (
     <Container>
@@ -29,23 +31,19 @@ const CardPost: React.FC = () => {
           <Avatar />
 
           <ContentInfo>
-            <NameUser>Paulo Leandro</NameUser>
+            <NameUser>{data?.user?.name}</NameUser>
             <Description isSpam>
-              Esta se sentindo <Description isHastag>#triste</Description>
+              Esta se sentindo{" "}
+              <Description isHastag>#{data?.feeling?.title}</Description>
             </Description>
           </ContentInfo>
         </ContentHeader>
 
-        <Emoji>😕</Emoji>
+        <Emoji>{data?.feeling?.emoji}</Emoji>
       </HeaderCardPost>
 
       <Content>
-        <Description>
-          A expressão Lorem ipsum em design gráfico e editoração é um texto
-          padrão em latim utilizado na produção gráfica para preencher os
-          espaços de texto em publicações para testar e ajustar aspectos visuais
-          antes de utilizar conteúdo real
-        </Description>
+        <Description>{data?.content}</Description>
       </Content>
 
       <Footer>

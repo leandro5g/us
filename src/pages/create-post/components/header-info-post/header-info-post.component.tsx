@@ -1,16 +1,21 @@
 import React, { useCallback, useState } from "react";
+import { useSelectFeeling } from "../../../../hooks/contexts/app/create-post/useSelectFeeling";
 
 import { ButtonIcon } from "../../../../components/buttons/button-icon/button-icon.component";
-import { Description } from "../../../../components/texts/description/description.component";
 import { ModalSelectedFeeling } from "../modal-selected-feeling/modal-selected-feeling.component";
+import { CardSelectFeeling } from "../card-select-feeling/card-select-feeling.component";
 
 import {
   Container,
   ButtonFeeling,
   ContainerFeeling,
+  Text
 } from "./header-info-post.styles";
+import { TextFeeling } from "../../../../components/texts/text-feeling/text-feeling.component";
 
 const HeaderInfoPost: React.FC = () => {
+  const { feelingSelected } = useSelectFeeling();
+
   const [isModalFeeling, setIsModalFeeling] = useState(false);
 
   const handleModal = useCallback(() => {
@@ -20,9 +25,16 @@ const HeaderInfoPost: React.FC = () => {
   return (
     <Container>
       <ContainerFeeling>
-        <ButtonIcon icon="heart" />
-        <ButtonFeeling activeOpacity={0.9} onPress={handleModal}>
-          <Description isSpam>Sentimento +</Description>
+        <ButtonIcon onPress={handleModal} icon="heart" />
+
+        <ButtonFeeling onPress={handleModal}>
+          {!!feelingSelected?.id ? (
+            <TextFeeling>
+              {feelingSelected?.title} {feelingSelected?.emoji}
+            </TextFeeling>
+          ) : (
+            <CardSelectFeeling />
+          )}
         </ButtonFeeling>
       </ContainerFeeling>
 

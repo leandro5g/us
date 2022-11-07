@@ -21,11 +21,11 @@ const TabRoutes: React.FC = () => {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: COLORS.BACKGROUND,
+          backgroundColor: COLORS.BACKGROUND
         },
         tabBarShowLabel: false,
         tabBarInactiveTintColor: COLORS.CAPTION_500,
-        tabBarActiveTintColor: COLORS.PRIMARY,
+        tabBarActiveTintColor: COLORS.PRIMARY
       }}
     >
       <Screen
@@ -34,20 +34,20 @@ const TabRoutes: React.FC = () => {
         options={{
           tabBarIcon: ({ color }) => (
             <AntDesign name="home" size={RFValue(30)} color={color} />
-          ),
+          )
         }}
       />
       <Screen
         name="Menu"
         component={Home}
         options={{
-          tabBarIcon: () => <ButtonTab />,
+          tabBarIcon: () => <ButtonTab />
         }}
         listeners={() => ({
           tabPress: (event) => {
             event.preventDefault();
-            navigate("CreatePost" as never);
-          },
+            navigate("CreatePostRoutes" as never);
+          }
         })}
       />
       <Screen
@@ -55,7 +55,7 @@ const TabRoutes: React.FC = () => {
         options={{
           tabBarIcon: ({ color }) => (
             <AntDesign name="user" size={RFValue(30)} color={color} />
-          ),
+          )
         }}
         component={Profile}
       />

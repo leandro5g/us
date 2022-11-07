@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useCallback } from "react";
+import { useNavigation } from "@react-navigation/native";
 import { useTheme } from "styled-components";
 import { RFValue } from "../../../../global/libs/react-native-responsive-font-size";
 
@@ -8,7 +9,6 @@ import { Title } from "../../../../components/texts/title/title.component";
 import { ButtonVoid } from "../../../../components/buttons/button-void/button-void.component";
 
 import { Container, WrappIcon } from "./header-create-post.styles";
-import { useNavigation } from "@react-navigation/native";
 
 const HeaderCreatePost: React.FC = () => {
   const { COLORS } = useTheme();

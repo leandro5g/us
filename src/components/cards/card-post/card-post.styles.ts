@@ -1,5 +1,5 @@
-import styled from 'styled-components/native';
-import { RFValue } from '../../../global/libs/react-native-responsive-font-size';
+import styled from "styled-components/native";
+import { RFValue } from "../../../global/libs/react-native-responsive-font-size";
 
 export const Container = styled.View`
   width: 100%;
@@ -32,7 +32,8 @@ export const NameUser = styled.Text`
 `;
 
 export const Content = styled.View`
-  padding: ${({ theme }) => theme.METRICS.PADDING}px;
+  padding: ${({ theme }) => theme.METRICS.PADDING / 2}px
+    ${({ theme }) => theme.METRICS.PADDING}px;
   border-top-width: ${RFValue(1)}px;
   border-bottom-width: ${RFValue(1)}px;
   border-color: ${({ theme }) => theme.COLORS.BORDER};

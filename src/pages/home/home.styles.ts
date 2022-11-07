@@ -1,3 +1,3 @@
-import styled from 'styled-components/native';
+import styled from "styled-components/native";
 
-export const Scroll = styled.ScrollView``;
+export const Scroll = styled.FlatList``;

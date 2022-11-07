@@ -20,7 +20,9 @@ client.interceptors.response.use(
 );
 
 export function setDefaultToken(token: string) {
-  client.defaults.headers.common["Authorization"] = token;
+  console.log(token, "token");
+
+  client.defaults.headers.common["Authorization"] = `Beare ${token}`;
 }
 
 export async function httpClientGet<T>({

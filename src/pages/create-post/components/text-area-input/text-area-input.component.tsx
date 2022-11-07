@@ -1,21 +1,35 @@
 import React from "react";
+import { Control, Controller } from "react-hook-form";
 import { useTheme } from "styled-components";
 
 import { Container, TextInput } from "./text-area-input.styles";
 
-const TextAreaInput: React.FC = () => {
+type TextAreaInputProps = {
+  name: string;
+  control: Control;
+};
+
+const TextAreaInput: React.FC<TextAreaInputProps> = ({ control, name }) => {
   const { COLORS } = useTheme();
 
   return (
     <Container>
-      <TextInput
-        autoCapitalize="sentences"
-        autoCorrect={false}
-        autoFocus
-        multiline
-        placeholder="Digite aqui seu desabafo...."
-        placeholderTextColor={COLORS.CAPTION_500}
-      />
+      <Controller
+        name={name}
+        control={control}
+        render={({ field: { onChange, value } }) => (
+          <TextInput
+            autoCapitalize="sentences"
+            autoCorrect={false}
+            autoFocus
+            multiline
+            placeholder="Digite aqui seu desabafo...."
+            placeholderTextColor={COLORS.CAPTION_500}
+            onChangeText={onChange}
+            value={value}
+          />
+        )}
+      ></Controller>
     </Container>
   );
 };
