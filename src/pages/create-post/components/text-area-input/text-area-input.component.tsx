@@ -7,6 +7,7 @@ import { Container, TextInput } from "./text-area-input.styles";
 type TextAreaInputProps = {
   name: string;
   control: Control;
+  isLoading?: boolean;
 };
 
 const TextAreaInput: React.FC<TextAreaInputProps> = ({ control, name }) => {

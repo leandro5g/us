@@ -12,6 +12,7 @@ interface ButtonIconProps extends TouchableOpacityProps {
   icon: "send" | "heart";
   isPrimary?: boolean;
   disable?: boolean;
+  isLoading?: boolean;
 }
 
 const ButtonIcon: React.FC<ButtonIconProps> = ({
