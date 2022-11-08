@@ -1,4 +1,7 @@
 import React, { useCallback } from "react";
+import { useCreatePost } from "../../services/post-service/create-post-service";
+import { useForm } from "react-hook-form";
+import { usePost } from "../../hooks/contexts/app/create-post/usePost";
 
 import { ContainerBackground } from "../../components/utils/container-background/container-background.component";
 import { HeaderCreatePost } from "./components/header-create-post/header-create-post.component";
@@ -7,9 +10,6 @@ import { ButtonIcon } from "../../components/buttons/button-icon/button-icon.com
 import { HeaderInfoPost } from "./components/header-info-post/header-info-post.component";
 
 import { Content, Footer } from "./create-post.styles";
-import { useForm } from "react-hook-form";
-import { usePost } from "../../hooks/contexts/app/create-post/usePost";
-import { useCreatePost } from "../../services/post-service/create-post-service";
 
 type FormData = {
   content: string;

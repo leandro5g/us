@@ -9,7 +9,7 @@ type LoadingProps = {
 const Loading: React.FC<LoadingProps> = ({ isLoading }) => {
   return (
     <Container>
-      <LoadingComponent animating={isLoading} />
+      <LoadingComponent testID="LoadingComponent" animating={isLoading} />
     </Container>
   );
 };

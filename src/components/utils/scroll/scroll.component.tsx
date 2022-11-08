@@ -6,7 +6,7 @@ import { Container } from "./scroll.styles";
 type ScrollProps = ScrollViewProps;
 
 const Scroll: React.FC<ScrollProps> = ({ ...rest }) => {
-  return <Container {...rest}></Container>;
+  return <Container testID="scroll" {...rest}></Container>;
 };
 
 export { Scroll };

@@ -9,8 +9,8 @@ type TextFeelingProps = {
 const TextFeeling: React.FC<TextFeelingProps> = ({ children }) => {
   return (
     <Container>
-      <Text>
-        Estou <SpamHastag>#{children}</SpamHastag>
+      <Text testID="SUB_TEXT">
+        Estou <SpamHastag testID="FEELING_TEXT">#{children}</SpamHastag>
       </Text>
     </Container>
   );

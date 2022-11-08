@@ -7,7 +7,7 @@ type SafeAreaProps = {
 };
 
 const SafeArea: React.FC<SafeAreaProps> = ({ children }) => {
-  return <Container>{children}</Container>;
+  return <Container testID="safe-area">{children}</Container>;
 };
 
 export { SafeArea };

@@ -7,7 +7,7 @@ type ContainerBackground = {
 };
 
 const ContainerBackground: React.FC<ContainerBackground> = ({ children }) => {
-  return <Container>{children}</Container>;
+  return <Container testID="ContainerBackground">{children}</Container>;
 };
 
 export { ContainerBackground };
