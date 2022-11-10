@@ -1,1 +1,6 @@
-export { httpClientPost, httpClientGet, setDefaultToken } from "./http.client";
+export {
+  httpClientPost,
+  httpClientGet,
+  setDefaultToken,
+  httpClientPut
+} from "./http.client";

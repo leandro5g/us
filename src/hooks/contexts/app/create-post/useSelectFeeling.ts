@@ -12,5 +12,10 @@ export function useSelectFeeling() {
     (createPost) => createPost.handleSelectedFeeling
   );
 
-  return { feelingSelected, handleSelectedFeeling };
+  const isErrorFeeling = useContextSelector(
+    CreatePostContext,
+    (createPost) => createPost.isErrorFeeling
+  );
+
+  return { feelingSelected, handleSelectedFeeling, isErrorFeeling };
 }

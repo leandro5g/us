@@ -12,5 +12,10 @@ export function useListPost() {
     (listPostContext) => listPostContext.loadPost
   );
 
-  return { posts, loadPost };
+  const onRefreshing = useContextSelector(
+    ListPostContext,
+    (listPostContext) => listPostContext.onRefreshing
+  );
+
+  return { posts, loadPost, onRefreshing };
 }

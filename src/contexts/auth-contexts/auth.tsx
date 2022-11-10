@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { createContext } from "use-context-selector";
-import { useSignIn } from "../../services/sign-in-service/sign-in-service";
+import { signInService } from "../../services/sign-in-service/sign-in-service";
 
 type SignInProps = {
   email: string;
@@ -11,6 +11,7 @@ type AuthContextData = {
   signIn(data: SignInProps): Promise<void>;
   token: string;
   user: User.UserModal;
+  updateUser(userUpdated: User.UserModal): void;
 };
 
 const AuthContext = createContext<AuthContextData>({} as AuthContextData);
@@ -22,7 +23,7 @@ type AuthContextProviderProps = {
 const AuthContextProvider: React.FC<AuthContextProviderProps> = ({
   children
 }) => {
-  const { handleSignIn } = useSignIn();
+  const { handleSignIn } = signInService();
 
   const [token, setToken] = useState("");
   const [user, setUser] = useState<User.UserModal>({} as User.UserModal);
@@ -40,12 +41,17 @@ const AuthContextProvider: React.FC<AuthContextProviderProps> = ({
     [handleSignIn]
   );
 
+  const updateUser = useCallback((userUpdated: User.UserModal) => {
+    setUser((oldUser) => (!!userUpdated ? userUpdated : oldUser));
+  }, []);
+
   return (
     <AuthContext.Provider
       value={{
         token,
         user,
-        signIn
+        signIn,
+        updateUser
       }}
     >
       {children}

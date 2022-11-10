@@ -1,7 +1,8 @@
 import React, { useCallback } from "react";
-import { useCreatePost } from "../../services/post-service/create-post-service";
+import { createPostService } from "../../services/post-service/create-post-service";
 import { useForm } from "react-hook-form";
 import { usePost } from "../../hooks/contexts/app/create-post/usePost";
+import { useNavigation } from "@react-navigation/native";
 
 import { ContainerBackground } from "../../components/utils/container-background/container-background.component";
 import { HeaderCreatePost } from "./components/header-create-post/header-create-post.component";
@@ -16,9 +17,11 @@ type FormData = {
 };
 
 const CreatePost: React.FC = () => {
+  const { goBack } = useNavigation();
+
   const { control, watch, handleSubmit } = useForm({});
   const { onCreatePost } = usePost();
-  const { isLoading } = useCreatePost();
+  const { isLoadingCreatePost } = createPostService();
 
   const content = watch("content");
 
@@ -27,6 +30,8 @@ const CreatePost: React.FC = () => {
       await onCreatePost({
         content
       });
+
+      goBack();
     },
     [onCreatePost]
   );
@@ -38,12 +43,16 @@ const CreatePost: React.FC = () => {
       <HeaderInfoPost />
 
       <Content>
-        <TextAreaInput isLoading={isLoading} control={control} name="content" />
+        <TextAreaInput
+          isLoading={isLoadingCreatePost}
+          control={control}
+          name="content"
+        />
       </Content>
 
       <Footer>
         <ButtonIcon
-          isLoading={isLoading}
+          isLoading={isLoadingCreatePost}
           onPress={handleSubmit(onSubmit)}
           disable={!content}
           icon="send"

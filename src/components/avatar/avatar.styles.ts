@@ -1,5 +1,5 @@
-import styled from 'styled-components/native';
-import { RFValue } from '../../global/libs/react-native-responsive-font-size';
+import styled from "styled-components/native";
+import { RFValue } from "../../global/libs/react-native-responsive-font-size";
 
 const AVATAR_HEIGHT = RFValue(42);
 
@@ -13,3 +13,5 @@ export const ImageAvatar = styled.Image`
   flex: 1;
   border-radius: ${AVATAR_HEIGHT / 2}PX;
 `;
+
+export const AvatarText = styled.Text``;

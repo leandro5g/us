@@ -1,9 +1,10 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useSubmit } from "../../hooks/clients/use-submit";
 import { useToastNotification } from "../../hooks/libs/toast/toast.hook";
 
-export function useCreatePost() {
-  const { isLoading, onSubmit } = useSubmit<Post.PostType>();
+export function createPostService() {
+  const [isLoadingCreatePost, setIsLoadingCreatePost] = useState(false);
+
   const { showToast } = useToastNotification();
 
   const createPost = useCallback(
@@ -12,8 +13,10 @@ export function useCreatePost() {
       feeling_id,
       is_anonymos
     }: CreatePostService.CreatePostProps) => {
+      setIsLoadingCreatePost(true);
+
       try {
-        const post = await onSubmit({
+        const post = await useSubmit<Post.PostModel>({
           path: "/posts",
           body: {
             content,
@@ -22,16 +25,14 @@ export function useCreatePost() {
           }
         });
 
-        console.log(post);
-
         return post;
       } catch (error) {
-        console.log(error);
-
         showToast({
           message: "Ocorreu um erro ao criar o seu desabafo.",
           type: "danger"
         });
+      } finally {
+        setIsLoadingCreatePost(false);
       }
     },
     [showToast]
@@ -39,6 +40,6 @@ export function useCreatePost() {
 
   return {
     createPost,
-    isLoading
+    isLoadingCreatePost
   };
 }

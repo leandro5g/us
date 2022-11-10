@@ -3,15 +3,17 @@ import React, { useCallback, useState } from "react";
 import { useFetch } from "../../hooks/clients/use-fetch";
 import { useToastNotification } from "../../hooks/libs/toast/toast.hook";
 
-export function useFeeling() {
-  const { handleFetch, isLoading } = useFetch<Feeling.FeelingModel[]>();
+export function feelingService() {
   const { showToast } = useToastNotification();
 
   const [feelings, setFeelings] = useState<Feeling.FeelingModel[]>([]);
+  const [isLoadingFeeling, setIsLoadingFeeling] = useState(true);
 
   const loadFeelings = useCallback(async () => {
     try {
-      const response = await handleFetch({
+      setIsLoadingFeeling(false);
+
+      const response = await useFetch<Feeling.FeelingModel[]>({
         path: "/feelings"
       });
 
@@ -21,8 +23,10 @@ export function useFeeling() {
         message: "Ocorreu um erro ao listar os sentimentos",
         type: "danger"
       });
+    } finally {
+      setIsLoadingFeeling(false);
     }
-  }, [handleFetch]);
+  }, []);
 
-  return { isLoading, loadFeelings, feelings };
+  return { loadFeelings, feelings, isLoadingFeeling };
 }

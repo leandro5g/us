@@ -49,3 +49,15 @@ export async function httpClientPost<T>({
 
   return response.data;
 }
+
+export async function httpClientPut<T>({
+  path,
+  options,
+  body
+}: HttpClient.PutParams): Promise<T> {
+  const response = await client.put<T>(path, body, {
+    ...options
+  });
+
+  return response.data;
+}

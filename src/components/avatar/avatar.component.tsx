@@ -1,15 +1,24 @@
 import React from "react";
 
-import { Container, ImageAvatar } from "./avatar.styles";
+import { Container, ImageAvatar, AvatarText } from "./avatar.styles";
 
-const Avatar: React.FC = () => {
+type AvatarProps = {
+  uri_avatar?: string;
+  name_user: string;
+};
+
+const Avatar: React.FC<AvatarProps> = ({ uri_avatar, name_user }) => {
   return (
     <Container>
-      <ImageAvatar
-        source={{
-          uri: "https://avatars.githubusercontent.com/u/100235332?v=4"
-        }}
-      />
+      {uri_avatar && (
+        <ImageAvatar
+          source={{
+            uri: uri_avatar
+          }}
+        />
+      )}
+
+      <AvatarText>{name_user?.[0]}</AvatarText>
     </Container>
   );
 };

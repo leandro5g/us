@@ -7,6 +7,12 @@ declare namespace HttpClient {
     path: string;
   };
 
+  type PutParams = {
+    options?: ExternalModules.Axios.AxiosRequestConfig;
+    body: Object;
+    path: string;
+  };
+
   type GetParams = {
     options?: ExternalModules.Axios.AxiosRequestConfig;
     params?: Object;

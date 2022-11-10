@@ -1,30 +1,34 @@
-import React, { useCallback } from "react";
+import { useCallback, useState } from "react";
+import { useSubmit } from "../../hooks/clients/use-submit";
+import { useToastNotification } from "../../hooks/libs/toast/toast.hook";
+
 import { HttpClient } from "../../@types/clients/http.client";
-import { CodeStatusError } from "../../@types/dtos/code-status-error";
 
 import { setDefaultToken } from "../../global/clients/http";
 
-import { useSubmit } from "../../hooks/clients/use-submit";
-import { useToastNotification } from "../../hooks/libs/toast/toast.hook";
+import { MESSAGES_ERROR } from "../../global/utils/messages-error.utils";
 
 type HandleSignInProps = {
   email: string;
   password: string;
 };
 
-export function useSignIn() {
-  const { isLoading, onSubmit } = useSubmit<SignInService.SignInReponse>();
+export function signInService() {
   const { showToast } = useToastNotification();
+
+  const [isLoadingSignIn, setIsLoadingSignIn] = useState(false);
 
   const handleSignIn = useCallback(
     async ({ email, password }: HandleSignInProps) => {
+      setIsLoadingSignIn(true);
+
       try {
         const body = {
           email,
           password
         };
 
-        const { token, user } = await onSubmit({
+        const { token, user } = await useSubmit<SignInService.SignInReponse>({
           path: "/sessions",
           body
         });
@@ -36,40 +40,22 @@ export function useSignIn() {
           user
         };
       } catch (error) {
-        console.log(error, "error");
-
         const errorResponse = error as ExternalModules.Axios.AxiosError;
         let responseError = errorResponse?.response
           ?.data as HttpClient.ResponseErrorHTTP;
 
-        if (
-          responseError?.code_error === CodeStatusError.EMAIL_PASSWORD_NOT_MATCH
-        ) {
-          showToast({
-            message: "E-mail ou senha inválidos.",
-            type: "danger"
-          });
-
-          return;
-        }
-
-        if (responseError?.code_error === CodeStatusError.USER_NOT_FOUND) {
-          showToast({
-            message: "E-mail não registrado.",
-            type: "danger"
-          });
-
-          return;
-        }
-
         showToast({
-          message: "Ocorreu um erro inesperado ao tentar realizar seu login.",
+          message:
+            MESSAGES_ERROR[responseError?.code_error] ||
+            "Ocorreu um erro inesperado ao realizar o login. Tente novamente.",
           type: "danger"
         });
+      } finally {
+        setIsLoadingSignIn(false);
       }
     },
     []
   );
 
-  return { isLoading, handleSignIn };
+  return { isLoadingSignIn, handleSignIn };
 }

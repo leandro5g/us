@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigation } from "@react-navigation/native";
 
-import { useSignUp } from "../../../../services/sign-up-service/sign-up-service";
+import { signUpService } from "../../../../services/sign-up-service/sign-up-service";
 import { signUpSchema } from "../../../../services/sign-up-service/schema/sign-up.schema";
 
 import { ButtonPrimary } from "../../../../components/buttons/button-primary/button-primary.component";
@@ -25,7 +25,7 @@ const FormSignUp: React.FC = () => {
   } = useForm({
     resolver: yupResolver(signUpSchema)
   });
-  const { handleSignUp, isLoading } = useSignUp();
+  const { handleSignUp, isLoadingSignUp } = signUpService();
 
   const { goBack } = useNavigation();
 
@@ -51,7 +51,7 @@ const FormSignUp: React.FC = () => {
     <Container>
       <Content>
         <InputDefault
-          isLoading={isLoading}
+          isLoading={isLoadingSignUp}
           name="name"
           control={control}
           icon="user"
@@ -60,7 +60,7 @@ const FormSignUp: React.FC = () => {
           keyboardType="ascii-capable"
         />
         <InputDefault
-          isLoading={isLoading}
+          isLoading={isLoadingSignUp}
           name="email"
           keyboardType="email-address"
           autoCapitalize="none"
@@ -70,7 +70,7 @@ const FormSignUp: React.FC = () => {
           error={errors?.email?.message as string}
         />
         <InputDefault
-          isLoading={isLoading}
+          isLoading={isLoadingSignUp}
           name="password"
           control={control}
           keyboardType="ascii-capable"
@@ -80,7 +80,7 @@ const FormSignUp: React.FC = () => {
           pass
         />
         <InputDefault
-          isLoading={isLoading}
+          isLoading={isLoadingSignUp}
           pass
           name="confirm_password"
           control={control}
@@ -93,7 +93,7 @@ const FormSignUp: React.FC = () => {
       </Content>
 
       <ButtonPrimary
-        isLoading={isLoading}
+        isLoading={isLoadingSignUp}
         onPress={handleSubmit(handleRegisterUser)}
         textButton="Criar conta"
       />

@@ -9,7 +9,13 @@ export function useUser() {
     (authContext) => authContext.user
   );
 
+  const handleUpdateUser = useContextSelector(
+    AuthContext,
+    (authContext) => authContext.updateUser
+  );
+
   return {
-    user
+    user,
+    handleUpdateUser
   };
 }

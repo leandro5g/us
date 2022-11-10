@@ -28,7 +28,10 @@ const CardPost: React.FC<CardPostProps> = ({ data }) => {
     <Container>
       <HeaderCardPost>
         <ContentHeader>
-          <Avatar />
+          <Avatar
+            name_user={data?.user?.name}
+            uri_avatar={data?.user?.avatar}
+          />
 
           <ContentInfo>
             <NameUser>{data?.user?.name}</NameUser>

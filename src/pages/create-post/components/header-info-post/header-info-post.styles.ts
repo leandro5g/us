@@ -6,9 +6,16 @@ export const Container = styled.View`
   background-color: ${({ theme }) => theme.COLORS.SHAPE};
   border-bottom-width: ${RFValue(1)}px;
   border-color: ${({ theme }) => theme.COLORS.BORDER};
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   padding: ${({ theme }) => theme.METRICS.PADDING}px;
+`;
+
+export const Content = styled.View`
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 `;
 
 export const ContainerFeeling = styled.View`

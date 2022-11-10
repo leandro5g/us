@@ -1,7 +1,11 @@
-import React, { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 import { useSubmit } from "../../hooks/clients/use-submit";
 import { useToastNotification } from "../../hooks/libs/toast/toast.hook";
+
+import { HttpClient } from "../../@types/clients/http.client";
+
+import { MESSAGES_ERROR } from "../../global/utils/messages-error.utils";
 
 type HandleSignUpProps = {
   email: string;
@@ -9,14 +13,17 @@ type HandleSignUpProps = {
   name: string;
 };
 
-export function useSignUp() {
-  const { isLoading, onSubmit } = useSubmit<User.UserModal>();
+export function signUpService() {
+  const [isLoadingSignUp, setIsLoadingSignUp] = useState(false);
+
   const { showToast } = useToastNotification();
 
   const handleSignUp = useCallback(
     async (body: HandleSignUpProps) => {
+      setIsLoadingSignUp(true);
+
       try {
-        const user = await onSubmit({
+        const user = await useSubmit<User.UserModal>({
           path: "/users",
           body
         });
@@ -31,15 +38,22 @@ export function useSignUp() {
           return "OK";
         }
       } catch (error) {
+        const errorResponse = error as ExternalModules.Axios.AxiosError;
+        let responseError = errorResponse?.response
+          ?.data as HttpClient.ResponseErrorHTTP;
+
         showToast({
           message:
-            "Ocorreu um erro inesperado ao tentar realizar seu cadastro.",
+            MESSAGES_ERROR[responseError?.code_error] ||
+            "Ocorreu um erro inesperado ao realizar o login. Tente novamente.",
           type: "danger"
         });
+      } finally {
+        setIsLoadingSignUp(false);
       }
     },
-    [onSubmit, showToast]
+    [showToast]
   );
 
-  return { isLoading, handleSignUp };
+  return { isLoadingSignUp, handleSignUp };
 }

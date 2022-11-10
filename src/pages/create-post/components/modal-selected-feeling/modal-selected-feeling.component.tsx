@@ -1,13 +1,13 @@
 import React, { useCallback, useEffect } from "react";
-import { useFeeling } from "../../../../services/feeling-service/feeling-service";
+import { feelingService } from "../../../../services/feeling-service/feeling-service";
+import { useSelectFeeling } from "../../../../hooks/contexts/app/create-post/useSelectFeeling";
 
 import { CardFeeling } from "../../../../components/cards/card-feeling/card-feeling.component";
 import { ModalDefault } from "../../../../components/modals/modal-default/modal-default.component";
 import { Scroll } from "../../../../components/utils/scroll/scroll.component";
+import { Loading } from "../../../../components/utils/loading/loading.component";
 
 import { Container, Content } from "./modal-selected-feeling.styles";
-import { Loading } from "../../../../components/utils/loading/loading.component";
-import { useSelectFeeling } from "../../../../hooks/contexts/app/create-post/useSelectFeeling";
 
 type ModalSelectedFeelingProps = {
   isVisible: boolean;
@@ -19,7 +19,7 @@ const ModalSelectedFeeling: React.FC<ModalSelectedFeelingProps> = ({
   onClose
 }) => {
   const { handleSelectedFeeling } = useSelectFeeling();
-  const { isLoading, loadFeelings, feelings } = useFeeling();
+  const { loadFeelings, feelings, isLoadingFeeling } = feelingService();
 
   useEffect(() => {
     loadFeelings();
@@ -42,9 +42,9 @@ const ModalSelectedFeeling: React.FC<ModalSelectedFeelingProps> = ({
       <Container>
         <Content>
           <Scroll>
-            {isLoading && <Loading isLoading={isLoading} />}
+            {isLoadingFeeling && <Loading isLoading={isLoadingFeeling} />}
 
-            {!isLoading && (
+            {!isLoadingFeeling && (
               <>
                 {feelings?.map((feeling) => (
                   <CardFeeling

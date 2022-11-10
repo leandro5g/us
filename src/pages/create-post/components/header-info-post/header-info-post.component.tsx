@@ -4,14 +4,15 @@ import { useSelectFeeling } from "../../../../hooks/contexts/app/create-post/use
 import { ButtonIcon } from "../../../../components/buttons/button-icon/button-icon.component";
 import { ModalSelectedFeeling } from "../modal-selected-feeling/modal-selected-feeling.component";
 import { CardSelectFeeling } from "../card-select-feeling/card-select-feeling.component";
+import { TextFeeling } from "../../../../components/texts/text-feeling/text-feeling.component";
+import { SwitchCreatePost } from "../switch-create-post/switch-create-post.component";
 
 import {
   Container,
   ButtonFeeling,
   ContainerFeeling,
-  Text
+  Content
 } from "./header-info-post.styles";
-import { TextFeeling } from "../../../../components/texts/text-feeling/text-feeling.component";
 
 const HeaderInfoPost: React.FC = () => {
   const { feelingSelected } = useSelectFeeling();
@@ -22,21 +23,27 @@ const HeaderInfoPost: React.FC = () => {
     setIsModalFeeling((oldValue) => !oldValue);
   }, []);
 
+  console.log("oi");
+
   return (
     <Container>
-      <ContainerFeeling>
-        <ButtonIcon onPress={handleModal} icon="heart" />
+      <Content>
+        <ContainerFeeling>
+          <ButtonIcon onPress={handleModal} icon="heart" />
 
-        <ButtonFeeling onPress={handleModal}>
-          {!!feelingSelected?.id ? (
-            <TextFeeling>
-              {feelingSelected?.title} {feelingSelected?.emoji}
-            </TextFeeling>
-          ) : (
-            <CardSelectFeeling />
-          )}
-        </ButtonFeeling>
-      </ContainerFeeling>
+          <ButtonFeeling onPress={handleModal}>
+            {!!feelingSelected?.id ? (
+              <TextFeeling>
+                {feelingSelected?.title} {feelingSelected?.emoji}
+              </TextFeeling>
+            ) : (
+              <CardSelectFeeling />
+            )}
+          </ButtonFeeling>
+        </ContainerFeeling>
+
+        <SwitchCreatePost />
+      </Content>
 
       {isModalFeeling && (
         <ModalSelectedFeeling
