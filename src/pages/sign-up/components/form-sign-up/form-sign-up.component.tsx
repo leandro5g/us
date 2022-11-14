@@ -58,6 +58,7 @@ const FormSignUp: React.FC = () => {
           placeholder="Nome"
           error={errors?.name?.message as string}
           keyboardType="ascii-capable"
+          autoCapitalize="sentences"
         />
         <InputDefault
           isLoading={isLoadingSignUp}

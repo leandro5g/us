@@ -4,12 +4,12 @@ import { TouchableOpacityProps } from "react-native";
 import { useTheme } from "styled-components";
 import { RFValue } from "../../../global/libs/react-native-responsive-font-size";
 
-import { Feather } from "@expo/vector-icons";
+import { Feather, Ionicons } from "@expo/vector-icons";
 
 import { Container } from "./button-icon.styles";
 
 interface ButtonIconProps extends TouchableOpacityProps {
-  icon: "send" | "heart";
+  icon: "send" | "heart" | "heart-outline";
   isPrimary?: boolean;
   disable?: boolean;
   isLoading?: boolean;
@@ -30,11 +30,15 @@ const ButtonIcon: React.FC<ButtonIconProps> = ({
       disable={disable}
       isPrimary={isPrimary}
     >
-      <Feather
-        name={icon}
-        size={RFValue(26)}
-        color={isPrimary ? COLORS.TEXT : COLORS.PRIMARY}
-      />
+      {icon === "send" ? (
+        <Feather
+          name="send"
+          size={RFValue(26)}
+          color={isPrimary ? COLORS.TEXT : COLORS.PRIMARY}
+        />
+      ) : (
+        <Ionicons name={icon} size={RFValue(26)} color={COLORS.PRIMARY} />
+      )}
     </Container>
   );
 };

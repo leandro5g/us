@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { useTheme } from "styled-components";
 import { RFValue } from "../../../../global/libs/react-native-responsive-font-size";
+import { useUser } from "../../../../hooks/contexts/auth/authenticate/useUser";
 
 import { Fontisto } from "@expo/vector-icons";
 
@@ -19,6 +20,8 @@ import {
 
 const HeaderHome: React.FC = () => {
   const { COLORS } = useTheme();
+  const { user } = useUser();
+
   const [isViewNotifications, setIsViewNotifications] = useState(false);
 
   const handleViewNotifications = useCallback(() => {
@@ -29,7 +32,7 @@ const HeaderHome: React.FC = () => {
     <Container>
       <Header>
         <Title isSub>
-          Olá, <Title>Leandro</Title>
+          Olá, <Title>{user?.name?.split(" ")?.[0]}</Title>
         </Title>
 
         <ContainerInfo>
@@ -42,7 +45,7 @@ const HeaderHome: React.FC = () => {
             />
           </ButtonVoid>
 
-          <Avatar />
+          <Avatar name_user={user?.name} uri_avatar={user?.avatar} />
         </ContainerInfo>
       </Header>
 

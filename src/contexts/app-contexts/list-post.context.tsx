@@ -6,7 +6,7 @@ type ListPostContextData = {
   loadPost(): Promise<void>;
   posts: Post.PostType[];
   addNewPost(newPost: Post.PostType): void;
-  onRefreshing: boolean;
+  loadPostPaginate(page: number): Promise<void>;
 };
 
 const ListPostContext = createContext<ListPostContextData>(
@@ -23,17 +23,37 @@ const ListPostContextProvider: React.FC<ListPostContextProviderProps> = ({
   const { getPost } = lisPostService();
 
   const [posts, setPosts] = useState<Post.PostType[]>([]);
-  const [onRefreshing, setOnRefreshing] = useState(false);
+  const [totalPage, setTotalPage] = useState(0);
 
   const loadPost = useCallback(async () => {
-    setOnRefreshing(true);
-
-    const posts = await getPost();
+    const { posts, total_page } = await getPost({
+      page: 0
+    });
 
     setPosts(posts);
 
-    setOnRefreshing(false);
+    setTotalPage(total_page);
   }, []);
+
+  const loadPostPaginate = useCallback(
+    async (page: number) => {
+      if (page > totalPage) return;
+
+      const response = await getPost({
+        page
+      });
+
+      setTotalPage(response.total_page);
+
+      console.log({
+        total_page: response.total_page,
+        page
+      });
+
+      setPosts((oldPosts) => [...oldPosts, ...response.posts]);
+    },
+    [totalPage]
+  );
 
   const addNewPost = useCallback((newPost: Post.PostType) => {
     setPosts((oldPosts) => [newPost, ...oldPosts]);
@@ -45,7 +65,7 @@ const ListPostContextProvider: React.FC<ListPostContextProviderProps> = ({
         loadPost,
         posts,
         addNewPost,
-        onRefreshing
+        loadPostPaginate
       }}
     >
       {children}

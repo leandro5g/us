@@ -20,8 +20,6 @@ client.interceptors.response.use(
 );
 
 export function setDefaultToken(token: string) {
-  console.log(token, "token");
-
   client.defaults.headers.common["Authorization"] = `Beare ${token}`;
 }
 

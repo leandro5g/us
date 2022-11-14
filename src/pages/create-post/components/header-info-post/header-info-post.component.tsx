@@ -23,13 +23,14 @@ const HeaderInfoPost: React.FC = () => {
     setIsModalFeeling((oldValue) => !oldValue);
   }, []);
 
-  console.log("oi");
-
   return (
     <Container>
       <Content>
         <ContainerFeeling>
-          <ButtonIcon onPress={handleModal} icon="heart" />
+          <ButtonIcon
+            onPress={handleModal}
+            icon={feelingSelected?.id ? "heart" : "heart-outline"}
+          />
 
           <ButtonFeeling onPress={handleModal}>
             {!!feelingSelected?.id ? (

@@ -2,7 +2,6 @@ import React, { useCallback } from "react";
 import { createPostService } from "../../services/post-service/create-post-service";
 import { useForm } from "react-hook-form";
 import { usePost } from "../../hooks/contexts/app/create-post/usePost";
-import { useNavigation } from "@react-navigation/native";
 
 import { ContainerBackground } from "../../components/utils/container-background/container-background.component";
 import { HeaderCreatePost } from "./components/header-create-post/header-create-post.component";
@@ -17,8 +16,6 @@ type FormData = {
 };
 
 const CreatePost: React.FC = () => {
-  const { goBack } = useNavigation();
-
   const { control, watch, handleSubmit } = useForm({});
   const { onCreatePost } = usePost();
   const { isLoadingCreatePost } = createPostService();
@@ -27,11 +24,11 @@ const CreatePost: React.FC = () => {
 
   const onSubmit = useCallback(
     async ({ content }: FormData) => {
+      if (!content) return;
+
       await onCreatePost({
         content
       });
-
-      goBack();
     },
     [onCreatePost]
   );

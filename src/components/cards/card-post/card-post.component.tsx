@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { useTheme } from "styled-components";
 
 import { Feather } from "@expo/vector-icons";
@@ -14,14 +14,17 @@ import {
   HeaderCardPost,
   ContentInfo,
   NameUser,
-  ContentHeader
+  ContentHeader,
+  ContentText
 } from "./card-post.styles";
+import { returnDistanceDate } from "../../../global/utils/return-distance-date";
 
 type CardPostProps = {
   data: Post.PostType;
+  isUser: boolean;
 };
 
-const CardPost: React.FC<CardPostProps> = ({ data }) => {
+const CardPostComponent: React.FC<CardPostProps> = ({ data, isUser }) => {
   const { COLORS } = useTheme();
 
   return (
@@ -35,7 +38,7 @@ const CardPost: React.FC<CardPostProps> = ({ data }) => {
 
           <ContentInfo>
             <NameUser>{data?.user?.name}</NameUser>
-            <Description isSpam>
+            <Description>
               Esta se sentindo{" "}
               <Description isHastag>#{data?.feeling?.title}</Description>
             </Description>
@@ -46,15 +49,18 @@ const CardPost: React.FC<CardPostProps> = ({ data }) => {
       </HeaderCardPost>
 
       <Content>
-        <Description>{data?.content}</Description>
+        <ContentText isSpam>{data?.content}</ContentText>
       </Content>
 
       <Footer>
-        <Description>Há 2h</Description>
-        <Feather name="trash-2" size={24} color={COLORS.CAPTION_400} />
+        <Description>{returnDistanceDate(data?.created_at)}</Description>
+
+        {isUser && (
+          <Feather name="trash-2" size={24} color={COLORS.CAPTION_400} />
+        )}
       </Footer>
     </Container>
   );
 };
 
-export { CardPost };
+export const CardPost = memo(CardPostComponent);

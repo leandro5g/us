@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useForm } from "react-hook-form";
-import { useSignIn } from "../../../../services/sign-in-service/sign-in-service";
+import { signInService } from "../../../../services/sign-in-service/sign-in-service";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useLogin } from "../../../../hooks/contexts/auth/authenticate/useLogin";
 
@@ -24,7 +24,7 @@ type FormData = {
 };
 
 const FormSignIn: React.FC = () => {
-  const { isLoading } = useSignIn();
+  const { isLoadingSignIn } = signInService();
   const { signIn } = useLogin();
 
   const { navigate } = useNavigation();
@@ -58,6 +58,7 @@ const FormSignIn: React.FC = () => {
           error={errors?.email?.message as string}
           keyboardType="email-address"
           autoCapitalize="none"
+          isLoading={isLoadingSignIn}
         />
         <InputDefault
           name="password"
@@ -69,6 +70,7 @@ const FormSignIn: React.FC = () => {
           autoCapitalize="none"
           error={errors?.password?.message as string}
           keyboardType="ascii-capable"
+          isLoading={isLoadingSignIn}
         />
       </Content>
 
@@ -76,7 +78,11 @@ const FormSignIn: React.FC = () => {
         <Description isAction>Esqueci minha senha</Description>
       </ButtonPasswordRecovery>
 
-      <ButtonPrimary onPress={handleSubmit(onSubmit)} textButton="Entrar" />
+      <ButtonPrimary
+        isLoading={isLoadingSignIn}
+        onPress={handleSubmit(onSubmit)}
+        textButton="Entrar"
+      />
 
       <ButtonSignUp onPress={handleNavigate}>
         <Description>

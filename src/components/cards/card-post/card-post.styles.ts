@@ -25,6 +25,12 @@ export const ContentInfo = styled.View`
   justify-content: center;
 `;
 
+export const ContentText = styled.Text`
+  color: ${({ theme }) => theme.COLORS.CAPTION_300};
+  font-size: ${({ theme }) => theme.FONTSIZES.SM3}px;
+  font-family: ${({ theme }) => theme.FONTS.REGULAR};
+`;
+
 export const NameUser = styled.Text`
   color: ${({ theme }) => theme.COLORS.PRIMARY};
   font-size: ${RFValue(18)}px;

@@ -10,7 +10,6 @@ export const updateProfileSchema = Yup.object()
     ),
     old_password: Yup.string()
       .min(6, "A senha deve possuir pelo menos 6 caracteres")
-      .required()
       .test("passwords-match", "As senhas devem ser iguais", function (value) {
         return !!this.parent.password && this.parent.password === value;
       })

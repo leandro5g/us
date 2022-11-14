@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useCallback, useState } from "react";
 import { createContext } from "use-context-selector";
 
@@ -29,6 +30,8 @@ type CreatePostContextProps = {
 const CreatePostContextProvider: React.FC<CreatePostContextProps> = ({
   children
 }) => {
+  const { goBack } = useNavigation();
+
   const { createPost } = createPostService();
   const { user } = useUser();
   const { addNewPost } = useAddPost();
@@ -75,6 +78,8 @@ const CreatePostContextProvider: React.FC<CreatePostContextProps> = ({
       } as Post.PostType;
 
       addNewPost(newPost as Post.PostType);
+
+      goBack();
     },
     [createPost, feelingSelected, isAnonymous, user, addNewPost]
   );
