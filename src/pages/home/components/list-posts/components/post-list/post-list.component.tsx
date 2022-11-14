@@ -1,4 +1,6 @@
 import React, { useCallback, useState } from "react";
+import { ListRenderItemInfo } from "react-native";
+
 import { useUser } from "../../../../../../hooks/contexts/auth/authenticate/useUser";
 
 import { CardPost } from "../../../../../../components/cards/card-post/card-post.component";
@@ -31,9 +33,9 @@ const PostList: React.FC = () => {
         onEndReached={handlePaginate}
         onEndReachedThreshold={0.9}
         keyExtractor={(_, index) => String(index)}
-        renderItem={({ item }) => (
+        renderItem={({ item }: ListRenderItemInfo<Post.PostType>) => (
           <CardPost
-            isUser={user?.id === item?.user_id!}
+            isUser={user?.id === item?.user_id}
             data={item as Post.PostType}
           />
         )}
