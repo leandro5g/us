@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { useTheme } from "styled-components";
-import { RFValue } from "../../../../global/libs/react-native-responsive-font-size";
+import { RFValue } from "../../../../global/libs/responsive-size";
 
 import { Feather } from "@expo/vector-icons";
 

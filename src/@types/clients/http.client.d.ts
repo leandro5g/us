@@ -25,4 +25,14 @@ declare namespace HttpClient {
     code_error: CodeStatusError;
     message: string;
   };
+
+  type PaginateParams = {
+    page: number;
+    page_size?: number;
+  };
+
+  type PaginateResponse<T> = {
+    data: T[];
+    total_page: number;
+  };
 }

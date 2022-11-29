@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { useTheme } from "styled-components";
-import { RFValue } from "../../../../global/libs/react-native-responsive-font-size";
+import { RFValue } from "../../../../global/libs/responsive-size";
 import { useUser } from "../../../../hooks/contexts/auth/authenticate/useUser";
 
 import { Fontisto } from "@expo/vector-icons";

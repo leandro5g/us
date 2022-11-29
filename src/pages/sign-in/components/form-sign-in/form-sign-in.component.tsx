@@ -3,7 +3,7 @@ import { useNavigation } from "@react-navigation/native";
 import { useForm } from "react-hook-form";
 import { signInService } from "../../../../services/sign-in-service/sign-in-service";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useLogin } from "../../../../hooks/contexts/auth/authenticate/useLogin";
+import { useSign } from "../../../../hooks/contexts/auth/authenticate/useSign";
 
 import { signInSchema } from "../../../../services/sign-in-service/schema/sign-in.schema";
 
@@ -25,7 +25,7 @@ type FormData = {
 
 const FormSignIn: React.FC = () => {
   const { isLoadingSignIn } = signInService();
-  const { signIn } = useLogin();
+  const { signIn } = useSign();
 
   const { navigate } = useNavigation();
   const {

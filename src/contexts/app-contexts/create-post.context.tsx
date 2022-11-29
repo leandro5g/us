@@ -2,8 +2,6 @@ import { useNavigation } from "@react-navigation/native";
 import React, { useCallback, useState } from "react";
 import { createContext } from "use-context-selector";
 
-import { useAddPost } from "../../hooks/contexts/app/list-post/useAddPost";
-import { useUser } from "../../hooks/contexts/auth/authenticate/useUser";
 import { createPostService } from "../../services/post-service/create-post-service";
 
 type OnCreatePostData = {
@@ -33,8 +31,6 @@ const CreatePostContextProvider: React.FC<CreatePostContextProps> = ({
   const { goBack } = useNavigation();
 
   const { createPost } = createPostService();
-  const { user } = useUser();
-  const { addNewPost } = useAddPost();
 
   const [feelingSelected, setFeelingSelected] = useState<Feeling.FeelingModel>(
     {} as Feeling.FeelingModel
@@ -59,29 +55,15 @@ const CreatePostContextProvider: React.FC<CreatePostContextProps> = ({
         return;
       }
 
-      const post = await createPost({
+      await createPost({
         content,
         feeling_id: feelingSelected?.id,
         is_anonymos: isAnonymous
       });
 
-      const newPost = {
-        ...post,
-        feeling: {
-          emoji: feelingSelected?.emoji,
-          title: feelingSelected?.title
-        },
-        user: {
-          avatar: user?.avatar,
-          name: user?.name
-        }
-      } as Post.PostType;
-
-      addNewPost(newPost as Post.PostType);
-
       goBack();
     },
-    [createPost, feelingSelected, isAnonymous, user, addNewPost]
+    [createPost, feelingSelected, isAnonymous]
   );
 
   return (

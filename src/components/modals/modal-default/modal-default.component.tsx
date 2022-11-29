@@ -1,7 +1,7 @@
 import React from "react";
 import { ModalProps } from "react-native";
 import { useTheme } from "styled-components";
-import { RFValue } from "../../../global/libs/react-native-responsive-font-size";
+import { RFValue } from "../../../global/libs/responsive-size";
 
 import { AntDesign } from "@expo/vector-icons";
 

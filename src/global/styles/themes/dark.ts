@@ -1,4 +1,4 @@
-import { RFValue } from "../../libs/react-native-responsive-font-size";
+import { RFValue } from "../../libs/responsive-size";
 import { StatusBar } from "react-native";
 import { isIphoneX, getStatusBarHeight } from "react-native-iphone-x-helper";
 
@@ -10,8 +10,9 @@ const HEIGHT_STATUS_BAR = isIphone
 export const THEME_DARK = {
   COLORS: {
     PRIMARY: "#8257e5",
-    BACKGROUND: "#121214",
+    BACKGROUND: "#070707",
     SHAPE: "#202024",
+    SHAPE_DARK: "#121214",
     SHAPE_LIGHT: "#303033",
     TEXT: "#FFFFFF",
     CAPTION_500: "#71717A",

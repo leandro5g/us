@@ -1,23 +1,14 @@
 import React, { memo } from "react";
 import { useTheme } from "styled-components";
 
+import { returnDistanceDate } from "../../../global/utils/return-distance-date";
+
 import { Feather } from "@expo/vector-icons";
 
-import { Avatar } from "../../avatar/avatar.component";
 import { Description } from "../../texts/description/description.component";
-import { Emoji } from "../../texts/emoji/emoji.component";
+import { HeaderCardPost } from "./components/header-card-post/header-card-post.component.tsx";
 
-import {
-  Container,
-  Content,
-  Footer,
-  HeaderCardPost,
-  ContentInfo,
-  NameUser,
-  ContentHeader,
-  ContentText
-} from "./card-post.styles";
-import { returnDistanceDate } from "../../../global/utils/return-distance-date";
+import { Container, Content, Footer, ContentText } from "./card-post.styles";
 
 type CardPostProps = {
   data: Post.PostType;
@@ -29,24 +20,7 @@ const CardPostComponent: React.FC<CardPostProps> = ({ data, isUser }) => {
 
   return (
     <Container>
-      <HeaderCardPost>
-        <ContentHeader>
-          <Avatar
-            name_user={data?.user?.name}
-            uri_avatar={data?.user?.avatar}
-          />
-
-          <ContentInfo>
-            <NameUser>{data?.user?.name}</NameUser>
-            <Description>
-              Esta se sentindo{" "}
-              <Description isHastag>#{data?.feeling?.title}</Description>
-            </Description>
-          </ContentInfo>
-        </ContentHeader>
-
-        <Emoji>{data?.feeling?.emoji}</Emoji>
-      </HeaderCardPost>
+      <HeaderCardPost data={data} />
 
       <Content>
         <ContentText isSpam>{data?.content}</ContentText>

@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components/native";
-import { RFValue } from "../../../../global/libs/react-native-responsive-font-size";
+import { RFValue } from "../../../../global/libs/responsive-size";
 
 type ContainerProps = {
   isErrorFeeling: boolean;

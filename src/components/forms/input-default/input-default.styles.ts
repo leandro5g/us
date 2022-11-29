@@ -1,14 +1,20 @@
+import { TextInput } from "react-native";
 import styled, { css } from "styled-components/native";
-import { RFValue } from "../../../global/libs/react-native-responsive-font-size";
+import { RFValue } from "../../../global/libs/responsive-size";
 
 type ContainerPropsInputProps = {
   notMargin?: boolean;
   isFocus?: boolean;
   isError?: boolean;
+  isDisable: boolean;
 };
 
 type ContainerProps = {
   notMargin?: boolean;
+};
+
+type InputProps = {
+  isDisable: boolean;
 };
 
 export const Container = styled.View<ContainerProps>`
@@ -19,7 +25,8 @@ export const Container = styled.View<ContainerProps>`
 export const ContainerInput = styled.View<ContainerPropsInputProps>`
   width: 100%;
   height: ${({ theme }) => theme.METRICS.BUTTON_SIZE}px;
-  background-color: ${({ theme }) => theme.COLORS.SHAPE};
+  background-color: ${({ theme, isDisable }) =>
+    !isDisable ? theme.COLORS.SHAPE : theme.COLORS.SHAPE_DARK};
   border-radius: ${({ theme }) => theme.METRICS.BORDER_RADIUS}px;
 
   flex-direction: row;
@@ -41,11 +48,12 @@ export const ContainerInput = styled.View<ContainerPropsInputProps>`
     `}
 `;
 
-export const Input = styled.TextInput`
+export const Input = styled(TextInput)<InputProps>`
   flex: 1;
   font-size: ${({ theme }) => theme.FONTSIZES.SM2}px;
   padding: 0px ${({ theme }) => theme.METRICS.PADDING / 2}px;
-  color: ${({ theme }) => theme.COLORS.CAPTION_300};
+  color: ${({ theme, isDisable }) =>
+    isDisable ? theme.COLORS.SHAPE_LIGHT : theme.COLORS.CAPTION_300};
   font-family: ${({ theme }) => theme.FONTS.REGULAR};
 `;
 

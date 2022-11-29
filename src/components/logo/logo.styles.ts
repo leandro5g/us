@@ -1,7 +1,7 @@
-import styled from 'styled-components/native';
-import { RFValue } from '../../global/libs/react-native-responsive-font-size';
+import styled from "styled-components/native";
+import { RFValue } from "../../global/libs/responsive-size";
 
-import { FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome5 } from "@expo/vector-icons";
 
 export const Container = styled.View`
   flex-direction: row;
@@ -16,7 +16,7 @@ export const TitleLogo = styled.Text`
 `;
 
 export const IconUsers = styled(FontAwesome5).attrs(({ theme }) => ({
-  name: 'users',
+  name: "users",
   size: RFValue(30),
   color: theme.COLORS.TEXT
 }))``;

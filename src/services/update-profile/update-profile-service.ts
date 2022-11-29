@@ -1,6 +1,6 @@
 import { useCallback, useState } from "react";
+import { httpClientPut } from "../../global/clients/http";
 
-import { usePut } from "../../hooks/clients/use-put";
 import { useToastNotification } from "../../hooks/libs/toast/toast.hook";
 
 export function updateProfileService() {
@@ -10,22 +10,25 @@ export function updateProfileService() {
 
   const updateProfie = useCallback(
     async ({
-      email,
       name,
       old_password,
-      password
+      password,
+      user_id
     }: UpdateProfileService.Request) => {
       setIsLoadingUpdateProfile(true);
 
       try {
-        const userUpdate = await usePut<User.UserModal>({
+        const userUpdate = await httpClientPut<User.UserModal>({
           body: {
-            email,
             name,
             old_password,
             password
           },
-          path: "/users"
+          path: `/profile/${user_id}`
+        });
+        showToast({
+          message: "Seus dados foram atualizados com sucesso!",
+          type: "success"
         });
 
         return userUpdate;

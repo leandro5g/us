@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { RFValue } from "../../../global/libs/react-native-responsive-font-size";
+import { RFValue } from "../../../global/libs/responsive-size";
 
 export const Container = styled.View`
   width: ${RFValue(200)}px;

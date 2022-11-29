@@ -4,14 +4,14 @@ export const updateProfileSchema = Yup.object()
   .shape({
     name: Yup.string().required("Campo obrigatório"),
     email: Yup.string().email("E-mail inválido").required("Campo obrigatório"),
+    old_password: Yup.string().when("password", {
+      is: (password: string) => !!password,
+      then: (schema) =>
+        schema.min(6, "As senhas possuem pelo menos 6 caracteres")
+    }),
     password: Yup.string().min(
       6,
-      "A senha deve possuir pelo menos 6 caracteres"
-    ),
-    old_password: Yup.string()
-      .min(6, "A senha deve possuir pelo menos 6 caracteres")
-      .test("passwords-match", "As senhas devem ser iguais", function (value) {
-        return !!this.parent.password && this.parent.password === value;
-      })
+      "As senha devem possuir pelo menos 6 caracteres"
+    )
   })
   .required();

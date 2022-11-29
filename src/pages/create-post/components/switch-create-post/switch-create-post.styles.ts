@@ -1,6 +1,6 @@
 import styled from "styled-components/native";
 import { FontAwesome } from "@expo/vector-icons";
-import { RFValue } from "../../../../global/libs/react-native-responsive-font-size";
+import { RFValue } from "../../../../global/libs/responsive-size";
 
 export const Container = styled.View`
   align-items: center;

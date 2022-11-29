@@ -17,7 +17,6 @@ import {
 
 type FormData = {
   name: string;
-  email: string;
   password: string;
   old_password: string;
 };
@@ -41,17 +40,23 @@ const FormProfile: React.FC = () => {
   }, []);
 
   const handleSaveUser = useCallback(
-    async ({ email, name, old_password, password }: FormData) => {
+    async ({ name, old_password, password }: FormData) => {
+      if (user.name === name && !old_password) {
+        return;
+      }
+
       const userUpdate = await updateProfie({
-        email,
+        user_id: user.id,
         name,
         old_password,
         password
       });
 
+      console.log(userUpdate);
+
       handleUpdateUser(userUpdate);
     },
-    []
+    [user]
   );
 
   return (
@@ -67,6 +72,7 @@ const FormProfile: React.FC = () => {
       <InputDefault
         control={control}
         name="email"
+        isDisable
         icon="mail"
         error={errors?.email?.message as string}
         placeholder="Seu E-mail"

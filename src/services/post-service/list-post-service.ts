@@ -1,33 +1,25 @@
-import { useCallback } from "react";
+import { HttpClient } from "../../@types/clients/http.client";
 import { useFetch } from "../../hooks/clients/use-fetch";
 
-type GetPostParams = {
-  page?: number;
-  page_size?: number;
-};
+export async function lisPostService<T>({
+  page,
+  page_size = 12
+}: HttpClient.PaginateParams): Promise<HttpClient.PaginateResponse<T>> {
+  try {
+    const { posts, total_page } =
+      await useFetch<ListPostService.ListPostResponse>({
+        path: "/posts",
+        params: {
+          page,
+          page_size
+        }
+      });
 
-export function lisPostService() {
-  const getPost = useCallback(
-    async ({
-      page = 0,
-      page_size = 12
-    }: GetPostParams): Promise<ListPostService.ListPostResponse> => {
-      try {
-        const response = await useFetch<ListPostService.ListPostResponse>({
-          path: "/posts",
-          params: {
-            page,
-            page_size
-          }
-        });
-
-        return response;
-      } catch (error) {
-        console.log(error);
-      }
-    },
-    []
-  );
-
-  return { getPost };
+    return {
+      data: posts as T[],
+      total_page
+    };
+  } catch (error) {
+    console.log(error);
+  }
 }

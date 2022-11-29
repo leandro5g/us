@@ -1,7 +1,7 @@
-import styled from 'styled-components/native';
-import LoginSvg from '../../assets/svgs/login-svg.svg';
-import { Description } from '../../components/texts/description/description.component';
-import { RFValue } from '../../global/libs/react-native-responsive-font-size';
+import styled from "styled-components/native";
+import LoginSvg from "../../assets/svgs/login-svg.svg";
+import { Description } from "../../components/texts/description/description.component";
+import { RFValue } from "../../global/libs/responsive-size";
 
 export const Container = styled.View`
   flex: 1;

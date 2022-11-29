@@ -1,5 +1,5 @@
-import styled from 'styled-components/native';
-import { RFValue } from '../../../../global/libs/react-native-responsive-font-size';
+import styled from "styled-components/native";
+import { RFValue } from "../../../../global/libs/responsive-size";
 
 const BUTTON_SIZE = 56;
 

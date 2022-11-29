@@ -22,6 +22,7 @@ interface InputDefaultProps extends TextInputProps {
   isLoading?: boolean;
   error?: string;
   pass?: boolean;
+  isDisable?: boolean;
 }
 
 const InputDefault: React.FC<InputDefaultProps> = ({
@@ -32,6 +33,7 @@ const InputDefault: React.FC<InputDefaultProps> = ({
   isLoading,
   error,
   pass,
+  isDisable,
   ...rest
 }) => {
   const [isFocus, setIsFocus] = useState(false);
@@ -53,11 +55,17 @@ const InputDefault: React.FC<InputDefaultProps> = ({
 
   return (
     <Container notMargin={notMargin}>
-      <ContainerInput isError={!!error} isFocus={isFocus}>
+      <ContainerInput isDisable={isDisable} isError={!!error} isFocus={isFocus}>
         <Feather
           name={icon}
           size={FONTSIZES.MD}
-          color={isFocus ? COLORS.PRIMARY : COLORS.CAPTION_500}
+          color={
+            isFocus
+              ? COLORS.PRIMARY
+              : isDisable
+              ? COLORS.SHAPE_LIGHT
+              : COLORS.CAPTION_500
+          }
         />
 
         <Controller
@@ -68,10 +76,11 @@ const InputDefault: React.FC<InputDefaultProps> = ({
               onChangeText={onChange}
               value={value}
               onFocus={onFocus}
-              editable={!isLoading}
               onBlur={onBlue}
+              isDisable={isDisable}
               placeholderTextColor={COLORS.CAPTION_500}
               secureTextEntry={isViewInput}
+              editable={!isLoading && !isDisable}
               {...rest}
             />
           )}
