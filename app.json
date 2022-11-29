@@ -1,8 +1,12 @@
 {
   "expo": {
-    "name": "us",
+    "name": "US 💜",
     "slug": "us",
     "version": "1.0.0",
+    "splash": {
+      "image": "./assets/splash.png"
+    },
+    "icon": "./assets/icon.png",
     "assetBundlePatterns": ["**/*"],
     "plugins": ["expo-image-picker"]
   }
