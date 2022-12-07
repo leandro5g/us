@@ -1,6 +1,5 @@
 import styled from "styled-components/native";
-import { Description } from "../../components/texts/description/description.component";
-import { RFValue } from "../../global/libs/responsive-size";
+import { SubTitleDefault } from "../../global/components/texts/sub-title-default/sub-title-default.component";
 
 export const Container = styled.View`
   flex: 1;
@@ -8,7 +7,7 @@ export const Container = styled.View`
   justify-content: center;
 `;
 
-export const DescriptionRegister = styled(Description).attrs({
+export const DescriptionRegister = styled(SubTitleDefault).attrs({
   isSpam: true
 })`
   margin-top: ${({ theme }) => theme.METRICS.PADDING_VERTICAL}px;

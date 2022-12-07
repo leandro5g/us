@@ -1,5 +1,5 @@
 import React, { useCallback } from "react";
-import { ButtonVoid } from "../../../../components/buttons/button-void/button-void.component";
+import { ButtonVoid } from "../../../../global/components/buttons/button-void/button-void.component";
 import { pickImage } from "../../../../global/libs/image-picker";
 import { useUser } from "../../../../hooks/contexts/auth/authenticate/useUser";
 import { updateAvatarService } from "../../../../services/update-profile/update-avatar-service";

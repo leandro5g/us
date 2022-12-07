@@ -7,9 +7,9 @@ import { useSign } from "../../../../hooks/contexts/auth/authenticate/useSign";
 
 import { signInSchema } from "../../../../services/sign-in-service/schema/sign-in.schema";
 
-import { ButtonPrimary } from "../../../../components/buttons/button-primary/button-primary.component";
-import { InputDefault } from "../../../../components/forms/input-default/input-default.component";
-import { Description } from "../../../../components/texts/description/description.component";
+import { ButtonPrimary } from "../../../../global/components/buttons/button-primary/button-primary.component";
+import { InputDefault } from "../../../../global/components/forms/input-default/input-default.component";
+import { SubTitleDefault } from "../../../../global/components/texts/sub-title-default/sub-title-default.component";
 
 import {
   Container,
@@ -75,7 +75,7 @@ const FormSignIn: React.FC = () => {
       </Content>
 
       <ButtonPasswordRecovery>
-        <Description isAction>Esqueci minha senha</Description>
+        <SubTitleDefault type="ACTION">Esqueci minha senha</SubTitleDefault>
       </ButtonPasswordRecovery>
 
       <ButtonPrimary
@@ -85,10 +85,10 @@ const FormSignIn: React.FC = () => {
       />
 
       <ButtonSignUp onPress={handleNavigate}>
-        <Description>
+        <SubTitleDefault>
           Nao possui uma conta?{" "}
-          <Description isAction>Cadastre-se aqui</Description>
-        </Description>
+          <SubTitleDefault type="ACTION">Cadastre-se aqui</SubTitleDefault>
+        </SubTitleDefault>
       </ButtonSignUp>
     </Container>
   );

@@ -20,7 +20,9 @@ export const THEME_DARK = {
     CAPTION_300: "#D4D4D8",
     BORDER: "#31313A",
     ALERT: "#F87171",
-    BG_RGBA: "rgba(0,0,0,0.5)"
+    BG_RGBA: "rgba(0,0,0,0.5)",
+
+    TITLES: "#E1E1E6"
   },
 
   FONTS: {
@@ -36,6 +38,11 @@ export const THEME_DARK = {
     SM3: RFValue(20),
     MD: RFValue(22),
     MD2: RFValue(24)
+  },
+
+  FONTS_SIZES: {
+    MD: RFValue(16),
+    MD2: RFValue(18)
   },
 
   METRICS: {

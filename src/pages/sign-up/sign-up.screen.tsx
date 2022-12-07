@@ -4,8 +4,8 @@ import { RFValue } from "../../global/libs/responsive-size";
 
 import { Feather } from "@expo/vector-icons";
 
-import { Title } from "../../components/texts/title/title.component";
-import { ContainerBackground } from "../../components/utils/container-background/container-background.component";
+import { Title } from "../../global/components/texts/title/title.component";
+import { ContainerBackground } from "../../global/components/utils/container-background/container-background.component";
 import { FormSignUp } from "./components/form-sign-up/form-sign-up.component";
 
 import { Container, DescriptionRegister, ButtonIcon } from "./sign-up.styles";

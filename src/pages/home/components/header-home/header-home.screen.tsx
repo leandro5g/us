@@ -5,11 +5,11 @@ import { useUser } from "../../../../hooks/contexts/auth/authenticate/useUser";
 
 import { Fontisto } from "@expo/vector-icons";
 
-import { Avatar } from "../../../../components/avatar/avatar.component";
-import { Title } from "../../../../components/texts/title/title.component";
-import { Description } from "../../../../components/texts/description/description.component";
-import { ModalNotifications } from "../modal-notifications/modal-notifications.component";
-import { ButtonVoid } from "../../../../components/buttons/button-void/button-void.component";
+import { Avatar } from "../../../../global/components/avatar/avatar.component";
+import { Title } from "../../../../global/components/texts/title/title.component";
+import { ModalNotifications } from "../../modules/notifications/components/modal-notifications/modal-notifications.component";
+import { ButtonVoid } from "../../../../global/components/buttons/button-void/button-void.component";
+import { SubTitleDefault } from "../../../../global/components/texts/sub-title-default/sub-title-default.component";
 
 import {
   Container,
@@ -50,9 +50,9 @@ const HeaderHome: React.FC = () => {
       </Header>
 
       <Content>
-        <Description>
+        <SubTitleDefault>
           Sinta-se seguro e desabafe sobre o que você precisar 💜
-        </Description>
+        </SubTitleDefault>
       </Content>
 
       {isViewNotifications && (

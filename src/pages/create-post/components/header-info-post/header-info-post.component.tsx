@@ -1,10 +1,10 @@
 import React, { useCallback, useState } from "react";
 import { useSelectFeeling } from "../../../../hooks/contexts/app/create-post/useSelectFeeling";
 
-import { ButtonIcon } from "../../../../components/buttons/button-icon/button-icon.component";
+import { ButtonIcon } from "../../../../global/components/buttons/button-icon/button-icon.component";
 import { ModalSelectedFeeling } from "../modal-selected-feeling/modal-selected-feeling.component";
 import { CardSelectFeeling } from "../card-select-feeling/card-select-feeling.component";
-import { TextFeeling } from "../../../../components/texts/text-feeling/text-feeling.component";
+import { TextFeeling } from "../../../../global/components/texts/text-feeling/text-feeling.component";
 import { SwitchCreatePost } from "../switch-create-post/switch-create-post.component";
 
 import {

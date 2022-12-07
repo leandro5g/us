@@ -1,5 +1,5 @@
 import styled from "styled-components/native";
-import { ButtonVoid } from "../../../../components/buttons/button-void/button-void.component";
+import { ButtonVoid } from "../../../../global/components/buttons/button-void/button-void.component";
 import { RFValue } from "../../../../global/libs/responsive-size";
 
 export const Container = styled.View``;

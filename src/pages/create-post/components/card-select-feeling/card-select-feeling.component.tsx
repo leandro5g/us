@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelectFeeling } from "../../../../hooks/contexts/app/create-post/useSelectFeeling";
 
-import { Description } from "../../../../components/texts/description/description.component";
+import { SubTitleDefault } from "../../../../global/components/texts/sub-title-default/sub-title-default.component";
 
 import { Container } from "./card-select-feeling.styles";
 
@@ -10,7 +10,7 @@ const CardSelectFeeling: React.FC = () => {
 
   return (
     <Container isErrorFeeling={isErrorFeeling}>
-      <Description isSpam>Sentimento +</Description>
+      <SubTitleDefault type="SPAM">Sentimento +</SubTitleDefault>
     </Container>
   );
 };

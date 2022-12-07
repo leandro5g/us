@@ -5,7 +5,7 @@ import { useSign } from "../hooks/contexts/auth/authenticate/useSign";
 
 import { AppRoutes } from "./app-routes";
 import { AuthRoutes } from "./auth-routes/auth.routes";
-import { Loading } from "../components/utils/loading/loading.component";
+import { Loading } from "../global/components/utils/loading/loading.component";
 
 const Routes: React.FC = () => {
   const { token } = useAuthenticate();

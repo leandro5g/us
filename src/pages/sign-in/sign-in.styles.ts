@@ -1,7 +1,9 @@
 import styled from "styled-components/native";
-import LoginSvg from "../../assets/svgs/login-svg.svg";
-import { Description } from "../../components/texts/description/description.component";
 import { RFValue } from "../../global/libs/responsive-size";
+
+import { SubTitleDefault } from "../../global/components/texts/sub-title-default/sub-title-default.component";
+
+import LoginSvg from "../../assets/svgs/login-svg.svg";
 
 export const Container = styled.View`
   flex: 1;
@@ -21,8 +23,8 @@ export const Content = styled.View`
   padding: ${({ theme }) => theme.METRICS.PADDING}px;
 `;
 
-export const DescriptionLogin = styled(Description).attrs({
-  isSpam: true
+export const DescriptionLogin = styled(SubTitleDefault).attrs({
+  type: "SPAM"
 })`
   margin: ${RFValue(24)}px 0px;
 `;

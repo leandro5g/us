@@ -2,10 +2,10 @@ import React, { useCallback, useEffect } from "react";
 import { feelingService } from "../../../../services/feeling-service/feeling-service";
 import { useSelectFeeling } from "../../../../hooks/contexts/app/create-post/useSelectFeeling";
 
-import { CardFeeling } from "../../../../components/cards/card-feeling/card-feeling.component";
-import { ModalDefault } from "../../../../components/modals/modal-default/modal-default.component";
-import { Scroll } from "../../../../components/utils/scroll/scroll.component";
-import { Loading } from "../../../../components/utils/loading/loading.component";
+import { CardFeeling } from "../../../../global/components/cards/card-feeling/card-feeling.component";
+import { ModalDefault } from "../../../../global/components/modals/modal-default/modal-default.component";
+import { Scroll } from "../../../../global/components/utils/scroll/scroll.component";
+import { Loading } from "../../../../global/components/utils/loading/loading.component";
 
 import { Container, Content } from "./modal-selected-feeling.styles";
 

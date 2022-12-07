@@ -1,5 +1,5 @@
 import React from "react";
-import { Logo } from "../../../../components/logo/logo.component";
+import { Logo } from "../../../../global/components/logo/logo.component";
 
 import { Container } from "./header-login.styles";
 

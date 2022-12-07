@@ -6,8 +6,8 @@ import { useNavigation } from "@react-navigation/native";
 import { signUpService } from "../../../../services/sign-up-service/sign-up-service";
 import { signUpSchema } from "../../../../services/sign-up-service/schema/sign-up.schema";
 
-import { ButtonPrimary } from "../../../../components/buttons/button-primary/button-primary.component";
-import { InputDefault } from "../../../../components/forms/input-default/input-default.component";
+import { ButtonPrimary } from "../../../../global/components/buttons/button-primary/button-primary.component";
+import { InputDefault } from "../../../../global/components/forms/input-default/input-default.component";
 
 import { Container, Content } from "./form-sign-up.styles";
 

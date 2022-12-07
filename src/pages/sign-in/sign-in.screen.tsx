@@ -1,8 +1,8 @@
 import React from "react";
 
-import { Title } from "../../components/texts/title/title.component";
 import { HeaderLogin } from "./components/header-login/header-login.component";
 import { FormSignIn } from "./components/form-sign-in/form-sign-in.component";
+import { TextDefault } from "../../global/components/texts/text-default/text-default.component";
 
 import {
   Container,
@@ -19,9 +19,9 @@ const SignIn: React.FC = () => {
       <Content>
         <SignInSvg />
 
-        <Title isLarge>Login</Title>
+        <TextDefault type="h1">Login</TextDefault>
 
-        <DescriptionLogin isSpam>
+        <DescriptionLogin>
           Digite seu e-mail e sua senha, e entre em um ambiente onde todos podem
           te ajudar 💜
         </DescriptionLogin>

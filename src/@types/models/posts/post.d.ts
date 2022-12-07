@@ -23,5 +23,6 @@ declare namespace Post {
     };
     created_at: Date;
     updated_at: Date;
+    count_comment: number;
   };
 }

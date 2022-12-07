@@ -5,8 +5,8 @@ import { RFValue } from "../../../../global/libs/responsive-size";
 
 import { Feather } from "@expo/vector-icons";
 
-import { Title } from "../../../../components/texts/title/title.component";
-import { ButtonVoid } from "../../../../components/buttons/button-void/button-void.component";
+import { Title } from "../../../../global/components/texts/title/title.component";
+import { ButtonVoid } from "../../../../global/components/buttons/button-void/button-void.component";
 
 import { Container, WrappIcon } from "./header-create-post.styles";
 

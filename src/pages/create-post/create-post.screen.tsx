@@ -3,10 +3,10 @@ import { createPostService } from "../../services/post-service/create-post-servi
 import { useForm } from "react-hook-form";
 import { usePost } from "../../hooks/contexts/app/create-post/usePost";
 
-import { ContainerBackground } from "../../components/utils/container-background/container-background.component";
+import { ContainerBackground } from "../../global/components/utils/container-background/container-background.component";
 import { HeaderCreatePost } from "./components/header-create-post/header-create-post.component";
 import { TextAreaInput } from "./components/text-area-input/text-area-input.component";
-import { ButtonIcon } from "../../components/buttons/button-icon/button-icon.component";
+import { ButtonIcon } from "../../global/components/buttons/button-icon/button-icon.component";
 import { HeaderInfoPost } from "./components/header-info-post/header-info-post.component";
 
 import { Content, Footer } from "./create-post.styles";

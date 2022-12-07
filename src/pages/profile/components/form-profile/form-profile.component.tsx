@@ -6,8 +6,8 @@ import { useUser } from "../../../../hooks/contexts/auth/authenticate/useUser";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { updateProfileSchema } from "../../../../services/update-profile/schemas/update-profile-schema";
 
-import { ButtonPrimary } from "../../../../components/buttons/button-primary/button-primary.component";
-import { InputDefault } from "../../../../components/forms/input-default/input-default.component";
+import { ButtonPrimary } from "../../../../global/components/buttons/button-primary/button-primary.component";
+import { InputDefault } from "../../../../global/components/forms/input-default/input-default.component";
 
 import {
   Container,
