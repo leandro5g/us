@@ -12,7 +12,7 @@ export const Container = styled.View`
 `;
 
 export const SignInSvg = styled(LoginSvg).attrs({
-  height: RFValue(320),
+  height: "36%",
   width: RFValue(320)
 })`
   align-self: center;

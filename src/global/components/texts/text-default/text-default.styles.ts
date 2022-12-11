@@ -20,6 +20,7 @@ export const Text = styled.Text<PropsText>`
       font-family: ${({ theme }) => theme.FONTS.SEMIBOLD};
       color: ${({ theme }) => theme.COLORS.TITLES};
       font-size: ${({ theme }) => theme.FONTS_SIZES.MD2}px;
+      font-size: ${RFValue(24)}px;
     `}
 
   ${({ type }) =>
@@ -28,5 +29,6 @@ export const Text = styled.Text<PropsText>`
       font-family: ${({ theme }) => theme.FONTS.REGULAR};
       color: ${({ theme }) => theme.COLORS.TITLES};
       font-size: ${({ theme }) => theme.FONTS_SIZES.MD}px;
+      font-size: ${RFValue(18)}px;
     `}
 `;

@@ -7,7 +7,20 @@
       "image": "./assets/splash.png"
     },
     "icon": "./assets/icon.png",
-    "assetBundlePatterns": ["**/*"],
-    "plugins": ["expo-image-picker"]
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "plugins": [
+      "expo-image-picker"
+    ],
+    "android": {
+      "permissions": [
+        "android.permission.RECORD_AUDIO"
+      ],
+      "package": "com.leandrodeveloper.us"
+    },
+    "ios": {
+      "bundleIdentifier": "com.leandrodeveloper.us"
+    }
   }
 }

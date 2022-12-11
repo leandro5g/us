@@ -2,12 +2,13 @@ import React from "react";
 import { usePagination } from "../../../../../../hooks/clients/use-pagination";
 import { useUser } from "../../../../../../hooks/contexts/auth/authenticate/useUser";
 
+import { lisPostService } from "../../../../../../services/post-service/list-post-service";
+
 import { Loading } from "../../../../../../global/components/utils/loading/loading.component";
 import { CardPost } from "../../../../../../global/components/cards/card-post/card-post.component";
 import { ListRenderItemInfo } from "react-native";
 
 import { Container, Scroll, Content } from "./list-posts.styles";
-import { lisPostService } from "../../../../../../services/post-service/list-post-service";
 
 const ListPosts: React.FC = () => {
   const { user } = useUser();

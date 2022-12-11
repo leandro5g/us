@@ -1,11 +1,8 @@
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 
-import { useSubmit } from "../../hooks/clients/use-submit";
 import { useToastNotification } from "../../hooks/libs/toast/toast.hook";
 
-import { HttpClient } from "../../@types/clients/http.client";
-
-import { MESSAGES_ERROR } from "../../global/utils/messages-error.utils";
+import { useSubmit } from "../../hooks/clients/use-submit";
 
 type HandleSignUpProps = {
   email: string;
@@ -14,46 +11,31 @@ type HandleSignUpProps = {
 };
 
 export function signUpService() {
-  const [isLoadingSignUp, setIsLoadingSignUp] = useState(false);
+  const { isLoadSubmit, onSubmit } = useSubmit();
 
   const { showToast } = useToastNotification();
 
   const handleSignUp = useCallback(
     async (body: HandleSignUpProps) => {
-      setIsLoadingSignUp(true);
+      const user = await onSubmit<User.UserModal>({
+        path: "/users",
+        body,
+        message_error:
+          "Ocorreu um erro inesperado ao realizar o login. Tente novamente."
+      });
 
-      try {
-        const user = await useSubmit<User.UserModal>({
-          path: "/users",
-          body
-        });
-
-        if (user?.id) {
-          showToast({
-            message:
-              "Sua conta foi criada com sucesso! Faça o login para entrar na plataforma.",
-            type: "success"
-          });
-
-          return "OK";
-        }
-      } catch (error) {
-        const errorResponse = error as ExternalModules.Axios.AxiosError;
-        let responseError = errorResponse?.response
-          ?.data as HttpClient.ResponseErrorHTTP;
-
+      if (user?.id) {
         showToast({
           message:
-            MESSAGES_ERROR[responseError?.code_error] ||
-            "Ocorreu um erro inesperado ao realizar o login. Tente novamente.",
-          type: "danger"
+            "Sua conta foi criada com sucesso! Faça o login para entrar na plataforma.",
+          type: "success"
         });
-      } finally {
-        setIsLoadingSignUp(false);
+
+        return "OK";
       }
     },
     [showToast]
   );
 
-  return { isLoadingSignUp, handleSignUp };
+  return { isLoadingSignUp: isLoadSubmit, handleSignUp };
 }

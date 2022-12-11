@@ -1,23 +1,26 @@
 import React from "react";
 import { Avatar } from "../../../../../../global/components/avatar/avatar.component";
+import { SubTitleDefault } from "../../../../../../global/components/texts/sub-title-default/sub-title-default.component";
 import { TextDefault } from "../../../../../../global/components/texts/text-default/text-default.component";
 
-import { Container, Content } from "./card-comments.styles";
+import {
+  Container,
+  Content,
+  NameUserComment,
+  ContentComment
+} from "./card-comments.styles";
 
-const CardComments: React.FC = () => {
+type CardCommentsProps = {
+  data: Comment.CommentType;
+};
+
+const CardComments: React.FC<CardCommentsProps> = ({ data }) => {
   return (
     <Container>
-      <Avatar
-        name_user="PA"
-        uri_avatar="https://arcosmodels.com/wp-content/uploads/2017/08/ANDRE-ZIEHE-290x380.jpg"
-      />
+      <Avatar name_user={data?.user?.name} uri_avatar={data?.user?.avatar} />
       <Content>
-        <TextDefault type="h2">Paulo Leandro</TextDefault>
-        <TextDefault type="h3">
-          is simply dummy text of the printing and typesetting industry. Lorem
-          Ipsum has been the industry's standard dummy text ever since the
-          1500s,
-        </TextDefault>
+        <NameUserComment type="h3">{data?.user?.name}</NameUserComment>
+        <ContentComment>{data?.content}</ContentComment>
       </Content>
     </Container>
   );

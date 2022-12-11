@@ -1,5 +1,5 @@
 import { useCallback, useState } from "react";
-import { httpClientPut } from "../../global/clients/http";
+import { httpClientPut } from "../../global/libs/clients/http";
 
 import { useToastNotification } from "../../hooks/libs/toast/toast.hook";
 

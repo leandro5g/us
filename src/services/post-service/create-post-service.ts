@@ -1,11 +1,8 @@
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import { useSubmit } from "../../hooks/clients/use-submit";
-import { useToastNotification } from "../../hooks/libs/toast/toast.hook";
 
 export function createPostService() {
-  const [isLoadingCreatePost, setIsLoadingCreatePost] = useState(false);
-
-  const { showToast } = useToastNotification();
+  const { isLoadSubmit, onSubmit } = useSubmit();
 
   const createPost = useCallback(
     async ({
@@ -13,33 +10,23 @@ export function createPostService() {
       feeling_id,
       is_anonymos
     }: CreatePostService.CreatePostProps) => {
-      setIsLoadingCreatePost(true);
+      const post = await onSubmit<Post.PostModel>({
+        path: "/posts",
+        body: {
+          content,
+          feeling_id,
+          is_anonymos
+        },
+        message_error: "Ocorreu um erro ao criar o seu desabafo."
+      });
 
-      try {
-        const post = await useSubmit<Post.PostModel>({
-          path: "/posts",
-          body: {
-            content,
-            feeling_id,
-            is_anonymos
-          }
-        });
-
-        return post;
-      } catch (error) {
-        showToast({
-          message: "Ocorreu um erro ao criar o seu desabafo.",
-          type: "danger"
-        });
-      } finally {
-        setIsLoadingCreatePost(false);
-      }
+      return post;
     },
-    [showToast]
+    []
   );
 
   return {
     createPost,
-    isLoadingCreatePost
+    isLoadingCreatePost: isLoadSubmit
   };
 }

@@ -1,7 +1,6 @@
-import React, { memo, useState, useCallback } from "react";
+import React, { memo } from "react";
 
 import { HeaderCardPost } from "./components/header-card-post/header-card-post.component.tsx";
-import { Comments } from "../../../../pages/home/modules/comments/comments.module";
 import { FooterCardPost } from "./components/footer-card-post/footer-card-post.component";
 
 import { Container, Content, ContentText } from "./card-post.styles";
@@ -12,12 +11,6 @@ type CardPostProps = {
 };
 
 const CardPostComponent: React.FC<CardPostProps> = ({ data, isUser }) => {
-  const [isViewModalComments, setIsViewModalComments] = useState(false);
-
-  const handleViewComments = useCallback(() => {
-    setIsViewModalComments((oldValue) => !oldValue);
-  }, []);
-
   return (
     <Container>
       <HeaderCardPost data={data} />
@@ -27,13 +20,11 @@ const CardPostComponent: React.FC<CardPostProps> = ({ data, isUser }) => {
       </Content>
 
       <FooterCardPost
+        post_id={data?.id}
         count_comment={data?.count_comment}
-        handleViewComments={handleViewComments}
         created_at={data?.created_at}
         isUser={isUser}
       />
-
-      <Comments isVisible={isViewModalComments} onClose={handleViewComments} />
     </Container>
   );
 };

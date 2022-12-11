@@ -1,12 +1,7 @@
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import { useSubmit } from "../../hooks/clients/use-submit";
-import { useToastNotification } from "../../hooks/libs/toast/toast.hook";
 
-import { HttpClient } from "../../@types/clients/http.client";
-
-import { setDefaultToken } from "../../global/clients/http";
-
-import { MESSAGES_ERROR } from "../../global/utils/messages-error.utils";
+import { setDefaultToken } from "../../global/libs/clients/http";
 
 type HandleSignInProps = {
   email: string;
@@ -14,48 +9,31 @@ type HandleSignInProps = {
 };
 
 export function signInService() {
-  const { showToast } = useToastNotification();
-
-  const [isLoadingSignIn, setIsLoadingSignIn] = useState(false);
+  const { isLoadSubmit, onSubmit } = useSubmit();
 
   const handleSignIn = useCallback(
     async ({ email, password }: HandleSignInProps) => {
-      setIsLoadingSignIn(true);
+      const body = {
+        email,
+        password
+      };
 
-      try {
-        const body = {
-          email,
-          password
-        };
+      const { token, user } = await onSubmit<SignInService.SignInReponse>({
+        path: "/sessions",
+        body,
+        message_error:
+          "Ocorreu um erro inesperado ao realizar o login. Tente novamente."
+      });
 
-        const { token, user } = await useSubmit<SignInService.SignInReponse>({
-          path: "/sessions",
-          body
-        });
+      setDefaultToken(token);
 
-        setDefaultToken(token);
-
-        return {
-          token,
-          user
-        };
-      } catch (error) {
-        const errorResponse = error as ExternalModules.Axios.AxiosError;
-        let responseError = errorResponse?.response
-          ?.data as HttpClient.ResponseErrorHTTP;
-
-        showToast({
-          message:
-            MESSAGES_ERROR[responseError?.code_error] ||
-            "Ocorreu um erro inesperado ao realizar o login. Tente novamente.",
-          type: "danger"
-        });
-      } finally {
-        setIsLoadingSignIn(false);
-      }
+      return {
+        token,
+        user
+      };
     },
     []
   );
 
-  return { isLoadingSignIn, handleSignIn };
+  return { isLoadingSignIn: isLoadSubmit, handleSignIn };
 }

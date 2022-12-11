@@ -1,11 +1,8 @@
-import { useState } from "react";
-import { httpClientPut } from "../../global/clients/http";
+import { httpClientPut } from "../../global/libs/clients/http";
 
 export async function updateAvatarService(
   base64: string
 ): Promise<User.UserModal> {
-  const [isLoadingUpdateAvatarService] = useState(false);
-
   try {
     const user = await httpClientPut<User.UserModal>({
       path: "/users/avatar",

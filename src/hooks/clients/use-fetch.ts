@@ -1,5 +1,5 @@
 import { HttpClient } from "../../@types/clients/http.client";
-import { httpClientGet } from "../../global/clients/http";
+import { httpClientGet } from "../../global/libs/clients/http";
 
 type SubmitProps = HttpClient.GetParams;
 

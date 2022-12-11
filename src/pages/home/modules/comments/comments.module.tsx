@@ -6,12 +6,25 @@ import {
   ModalCommentsProps
 } from "./components/modal-comments/modal-comments.component";
 
-type CommentsProps = ModalCommentsProps;
+interface CommentsProps extends ModalCommentsProps {
+  post_id: string;
+  handleAddCountComment(): void;
+}
 
-const Comments: React.FC<CommentsProps> = ({ isVisible, onClose }) => {
+const Comments: React.FC<CommentsProps> = ({
+  isVisible,
+  onClose,
+  post_id,
+  handleAddCountComment
+}) => {
   return (
     <Container>
-      <ModalComments isVisible={isVisible} onClose={onClose} />
+      <ModalComments
+        post_id={post_id}
+        isVisible={isVisible}
+        onClose={onClose}
+        handleAddCountComment={handleAddCountComment}
+      />
     </Container>
   );
 };

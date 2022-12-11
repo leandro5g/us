@@ -10,24 +10,26 @@ import {
   SignInSvg,
   DescriptionLogin
 } from "./sign-in.styles";
+import { KeyboardHandle } from "../../global/components/utils/keyboard-handle/keyboard-handle.component";
 
 const SignIn: React.FC = () => {
   return (
     <Container>
       <HeaderLogin />
+      <KeyboardHandle>
+        <Content>
+          <SignInSvg />
 
-      <Content>
-        <SignInSvg />
+          <TextDefault type="h1">Login</TextDefault>
 
-        <TextDefault type="h1">Login</TextDefault>
+          <DescriptionLogin>
+            Digite seu e-mail e sua senha, e entre em um ambiente onde todos
+            podem te ajudar 💜
+          </DescriptionLogin>
 
-        <DescriptionLogin>
-          Digite seu e-mail e sua senha, e entre em um ambiente onde todos podem
-          te ajudar 💜
-        </DescriptionLogin>
-
-        <FormSignIn />
-      </Content>
+          <FormSignIn />
+        </Content>
+      </KeyboardHandle>
     </Container>
   );
 };

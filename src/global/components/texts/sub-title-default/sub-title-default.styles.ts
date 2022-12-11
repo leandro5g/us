@@ -11,7 +11,7 @@ export const Text = styled.Text<TextProps>`
   color: ${({ theme }) => theme.COLORS.CAPTION_400};
   font-size: ${({ theme }) => theme.FONTSIZES.SM}px;
   font-family: ${({ theme }) => theme.FONTS.REGULAR};
-  line-height: ${RFValue(28)}px;
+  line-height: ${({ theme }) => theme.FONTSIZES.SM + RFValue(8)}px;
 
   ${({ type }) =>
     type === "HASTAG" &&

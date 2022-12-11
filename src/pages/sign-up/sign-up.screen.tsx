@@ -1,6 +1,7 @@
 import React from "react";
 import { useTheme } from "styled-components";
 import { RFValue } from "../../global/libs/responsive-size";
+import { useNavigation } from "@react-navigation/native";
 
 import { Feather } from "@expo/vector-icons";
 
@@ -9,29 +10,33 @@ import { ContainerBackground } from "../../global/components/utils/container-bac
 import { FormSignUp } from "./components/form-sign-up/form-sign-up.component";
 
 import { Container, DescriptionRegister, ButtonIcon } from "./sign-up.styles";
+import { KeyboardHandle } from "../../global/components/utils/keyboard-handle/keyboard-handle.component";
 
 const SignUp: React.FC = () => {
   const { COLORS } = useTheme();
+  const { goBack } = useNavigation();
 
   return (
     <ContainerBackground>
-      <Container>
-        <ButtonIcon>
-          <Feather
-            name="arrow-left"
-            color={COLORS.PRIMARY}
-            size={RFValue(30)}
-          />
-        </ButtonIcon>
+      <KeyboardHandle>
+        <Container>
+          <ButtonIcon onPress={goBack}>
+            <Feather
+              name="arrow-left"
+              color={COLORS.PRIMARY}
+              size={RFValue(30)}
+            />
+          </ButtonIcon>
 
-        <Title isLarge>Criar conta</Title>
+          <Title isLarge>Criar conta</Title>
 
-        <DescriptionRegister>
-          Preencha suas informacoes{`\n`}abaixo para se registrar no US.
-        </DescriptionRegister>
+          <DescriptionRegister>
+            Preencha suas informacoes{`\n`}abaixo para se registrar no US.
+          </DescriptionRegister>
 
-        <FormSignUp />
-      </Container>
+          <FormSignUp />
+        </Container>
+      </KeyboardHandle>
     </ContainerBackground>
   );
 };

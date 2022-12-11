@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
+import { Comments } from "../../../../../../pages/home/modules/comments/comments.module";
 
 import { returnDistanceDate } from "../../../../../utils/return-distance-date";
 
@@ -16,16 +17,27 @@ import {
 type FooterCardPostProps = {
   created_at: Date;
   isUser: boolean;
-  handleViewComments(): void;
   count_comment: number;
+  post_id: string;
 };
 
 const FooterCardPost: React.FC<FooterCardPostProps> = ({
   created_at,
   isUser,
-  handleViewComments,
-  count_comment
+  count_comment,
+  post_id
 }) => {
+  const [isViewModalComments, setIsViewModalComments] = useState(false);
+  const [countComment, setCountComment] = useState(count_comment);
+
+  const handleViewComments = useCallback(() => {
+    setIsViewModalComments((oldValue) => !oldValue);
+  }, []);
+
+  const handleAddCountComment = useCallback(() => {
+    setCountComment((oldCount) => oldCount + 1);
+  }, []);
+
   return (
     <Container>
       <ContentFooter>
@@ -34,14 +46,21 @@ const FooterCardPost: React.FC<FooterCardPostProps> = ({
         <ButtonVoid onPress={handleViewComments}>
           <ContentIcon>
             <IconMessage />
-            {count_comment > 0 && (
-              <SubTitleDefault>{count_comment} comentarios</SubTitleDefault>
+            {countComment > 0 && (
+              <SubTitleDefault>{countComment} comentarios</SubTitleDefault>
             )}
           </ContentIcon>
         </ButtonVoid>
       </ContentFooter>
 
       {isUser && <IconTrash />}
+
+      <Comments
+        handleAddCountComment={handleAddCountComment}
+        post_id={post_id}
+        isVisible={isViewModalComments}
+        onClose={handleViewComments}
+      />
     </Container>
   );
 };

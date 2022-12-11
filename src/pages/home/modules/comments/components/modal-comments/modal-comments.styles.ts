@@ -8,5 +8,3 @@ export const Container = styled.View`
   justify-content: space-between;
   height: ${height * 0.8}px;
 `;
-
-export const Content = styled.View``;

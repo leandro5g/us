@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { createContext } from "use-context-selector";
-import { setDefaultToken } from "../../global/clients/http";
+import { setDefaultToken } from "../../global/libs/clients/http";
 import { useStorage } from "../../global/libs/storage";
 import { useAuthenticate } from "../../global/utils/authenticate";
 import { signInService } from "../../services/sign-in-service/sign-in-service";
