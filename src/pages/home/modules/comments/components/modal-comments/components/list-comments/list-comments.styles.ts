@@ -5,4 +5,6 @@ export const Container = styled.View`
   flex: 1;
 `;
 
-export const List = styled(FlatList)``;
+export const List = styled(FlatList)`
+  flex: 1;
+`;

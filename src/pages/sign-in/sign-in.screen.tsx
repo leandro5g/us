@@ -3,6 +3,8 @@ import React from "react";
 import { HeaderLogin } from "./components/header-login/header-login.component";
 import { FormSignIn } from "./components/form-sign-in/form-sign-in.component";
 import { TextDefault } from "../../global/components/texts/text-default/text-default.component";
+import { KeyboardHandle } from "../../global/components/utils/keyboard-handle/keyboard-handle.component";
+import { KeyboardAvoiding } from "../../global/components/utils/keyboard-avoiding/keyboard-avoiding.component";
 
 import {
   Container,
@@ -10,27 +12,29 @@ import {
   SignInSvg,
   DescriptionLogin
 } from "./sign-in.styles";
-import { KeyboardHandle } from "../../global/components/utils/keyboard-handle/keyboard-handle.component";
 
 const SignIn: React.FC = () => {
   return (
-    <Container>
-      <HeaderLogin />
-      <KeyboardHandle>
-        <Content>
-          <SignInSvg />
+    <KeyboardHandle>
+      <Container>
+        <HeaderLogin />
 
-          <TextDefault type="h1">Login</TextDefault>
+        <KeyboardAvoiding>
+          <Content>
+            <SignInSvg />
 
-          <DescriptionLogin>
-            Digite seu e-mail e sua senha, e entre em um ambiente onde todos
-            podem te ajudar 💜
-          </DescriptionLogin>
+            <TextDefault type="h1">Login</TextDefault>
 
-          <FormSignIn />
-        </Content>
-      </KeyboardHandle>
-    </Container>
+            <DescriptionLogin>
+              Digite seu e-mail e sua senha, e entre em um ambiente onde todos
+              podem te ajudar 💜
+            </DescriptionLogin>
+
+            <FormSignIn />
+          </Content>
+        </KeyboardAvoiding>
+      </Container>
+    </KeyboardHandle>
   );
 };
 

@@ -5,21 +5,24 @@ import { HeaderProfile } from "./components/header-profile/header-profile.compon
 import { AvatarUser } from "./components/avatar-user/avatar-user.components";
 import { FormProfile } from "./components/form-profile/form-profile.component";
 import { Scroll } from "../../global/components/utils/scroll/scroll.component";
+import { KeyboardAvoiding } from "../../global/components/utils/keyboard-avoiding/keyboard-avoiding.component";
 
 import { Content } from "./profile.styles";
 
 const Profile: React.FC = () => {
   return (
     <ContainerBackground>
-      <Scroll>
-        <HeaderProfile />
+      <KeyboardAvoiding behavior="padding">
+        <Scroll>
+          <HeaderProfile />
 
-        <Content>
-          <AvatarUser />
+          <Content>
+            <AvatarUser />
 
-          <FormProfile />
-        </Content>
-      </Scroll>
+            <FormProfile />
+          </Content>
+        </Scroll>
+      </KeyboardAvoiding>
     </ContainerBackground>
   );
 };

@@ -23,24 +23,18 @@ const ListComments: React.FC<ListCommentsProps> = ({
   comments
 }) => {
   return (
-    <Container>
-      {!isLoading && (
-        <List
-          refreshing={isRefreshing}
-          onRefresh={handleRefresh}
-          onEndReached={handleMore}
-          onEndReachedThreshold={0.8}
-          showsVerticalScrollIndicator={false}
-          data={comments}
-          ListFooterComponent={() => <Loading isLoading={isLoadingPaginate} />}
-          renderItem={({ item }) => (
-            <CardComments data={item as Comment.CommentType} />
-          )}
-        />
+    <List
+      refreshing={isRefreshing}
+      onRefresh={handleRefresh}
+      onEndReached={handleMore}
+      onEndReachedThreshold={0.8}
+      showsVerticalScrollIndicator={false}
+      data={comments}
+      ListFooterComponent={() => <Loading isLoading={isLoadingPaginate} />}
+      renderItem={({ item }) => (
+        <CardComments data={item as Comment.CommentType} />
       )}
-
-      {isLoading && <Loading isLoading={isLoading} />}
-    </Container>
+    />
   );
 };
 

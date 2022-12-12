@@ -15,4 +15,6 @@ export const DescriptionRegister = styled(SubTitleDefault).attrs({
   margin-top: ${({ theme }) => theme.METRICS.PADDING_VERTICAL}px;
 `;
 
-export const ButtonIcon = styled(ButtonVoid)``;
+export const ButtonIcon = styled(ButtonVoid)`
+  top: -${RFValue(80)}px;
+`;

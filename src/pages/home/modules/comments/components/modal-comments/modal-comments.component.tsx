@@ -1,6 +1,7 @@
-import React, { useCallback, useState } from "react";
+import React from "react";
 
 import { ModalDefault } from "../../../../../../global/components/modals/modal-default/modal-default.component";
+import { KeyboardHandle } from "../../../../../../global/components/utils/keyboard-handle/keyboard-handle.component";
 import { usePagination } from "../../../../../../hooks/clients/use-pagination";
 import { loadCommentsService } from "../../../../../../services/comments-services/load-comments-service";
 import { FormComment } from "./components/form-comment/form-comment.component";
@@ -37,24 +38,26 @@ const ModalComments: React.FC<ModalCommentsProps> = ({
   });
 
   return (
-    <ModalDefault visible={isVisible} onClose={onClose} title="Comentarios">
-      <Container>
-        <ListComments
-          comments={data}
-          isLoading={isLoading}
-          handleMore={handleMore}
-          handleRefresh={handleRefresh}
-          isLoadingPaginate={isLoadingPaginate}
-          isRefreshing={isRefreshing}
-        />
+    <KeyboardHandle>
+      <ModalDefault visible={isVisible} onClose={onClose} title="Comentarios">
+        <Container>
+          <ListComments
+            comments={data}
+            isLoading={isLoading}
+            handleMore={handleMore}
+            handleRefresh={handleRefresh}
+            isLoadingPaginate={isLoadingPaginate}
+            isRefreshing={isRefreshing}
+          />
 
-        <FormComment
-          addNewComment={addNewItemData}
-          post_id={post_id}
-          handleAddCountComment={handleAddCountComment}
-        />
-      </Container>
-    </ModalDefault>
+          <FormComment
+            addNewComment={addNewItemData}
+            post_id={post_id}
+            handleAddCountComment={handleAddCountComment}
+          />
+        </Container>
+      </ModalDefault>
+    </KeyboardHandle>
   );
 };
 

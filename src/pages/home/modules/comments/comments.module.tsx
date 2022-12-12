@@ -1,4 +1,5 @@
 import React from "react";
+import { KeyboardHandle } from "../../../../global/components/utils/keyboard-handle/keyboard-handle.component";
 
 import { Container } from "./comments.styles";
 import {

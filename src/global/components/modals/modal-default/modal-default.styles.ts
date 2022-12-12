@@ -1,7 +1,9 @@
+import { KeyboardAvoidingView } from "react-native";
 import styled from "styled-components/native";
 
 export const Modal = styled.Modal`
   flex: 1;
+  position: absolute;
 `;
 
 export const Container = styled.View`
@@ -21,3 +23,5 @@ export const HeaderModal = styled.View`
 export const Content = styled.View`
   background-color: ${({ theme }) => theme.COLORS.SHAPE};
 `;
+
+export const KeyboardAvoiding = styled(KeyboardAvoidingView)``;

@@ -1,7 +1,7 @@
-import { Dimensions } from "react-native";
+import { Dimensions, KeyboardAvoidingView, Platform } from "react-native";
 import styled from "styled-components/native";
 
-const { height } = Dimensions.get("window");
+const { height } = Dimensions.get("screen");
 
 export const Container = styled.View`
   padding: ${({ theme }) => theme.METRICS.PADDING}px;

@@ -1,5 +1,5 @@
-import React from "react";
-import { Platform } from "react-native";
+import React, { useCallback } from "react";
+import { Keyboard } from "react-native";
 
 type KeyboardHandleProps = {
   children: React.ReactNode;
@@ -8,11 +8,11 @@ type KeyboardHandleProps = {
 import { Container } from "./keyboard-handle.styles";
 
 const KeyboardHandle: React.FC<KeyboardHandleProps> = ({ children }) => {
-  return (
-    <Container behavior={Platform.OS === "ios" ? "padding" : undefined}>
-      {children}
-    </Container>
-  );
+  const onPress = useCallback(() => {
+    Keyboard.dismiss();
+  }, []);
+
+  return <Container onPress={onPress}>{children}</Container>;
 };
 
 export { KeyboardHandle };
