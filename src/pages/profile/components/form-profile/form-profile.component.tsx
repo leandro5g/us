@@ -29,6 +29,7 @@ const FormProfile: React.FC = () => {
     control,
     handleSubmit,
     setValue,
+    reset,
     formState: { errors }
   } = useForm({
     resolver: yupResolver(updateProfileSchema)
@@ -52,9 +53,9 @@ const FormProfile: React.FC = () => {
         password
       });
 
-      console.log(userUpdate);
-
       handleUpdateUser(userUpdate);
+      setValue("password", "");
+      setValue("old_password", "");
     },
     [user]
   );

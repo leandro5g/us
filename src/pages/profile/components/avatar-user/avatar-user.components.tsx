@@ -19,12 +19,8 @@ const AvatarUser: React.FC = () => {
 
     const user = await updateAvatarService(fileUri);
 
-    console.log(user, "user <<<");
-
     handleUpdateUser(user);
   }, []);
-
-  console.log(user?.avatar, " user?.avatar");
 
   return (
     <Container>

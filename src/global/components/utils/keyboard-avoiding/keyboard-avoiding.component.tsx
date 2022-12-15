@@ -1,5 +1,5 @@
 import React from "react";
-import { KeyboardAvoidingViewProps, Platform } from "react-native";
+import { Platform } from "react-native";
 
 import { Container } from "./keyboard-avoiding.styles";
 

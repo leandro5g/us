@@ -2,7 +2,7 @@ import axios, { AxiosError } from "axios";
 import { HttpClient } from "../../../../@types/clients/http.client";
 
 export const client = axios.create({
-  baseURL: "http://localhost:3333",
+  baseURL: "http://192.168.10.24:3333",
   timeout: 30000
 });
 

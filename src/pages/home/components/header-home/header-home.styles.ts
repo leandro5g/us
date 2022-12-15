@@ -1,5 +1,4 @@
 import styled from "styled-components/native";
-import { RFValue } from "../../../../global/libs/responsive-size";
 
 export const Container = styled.View`
   padding: ${({ theme }) => theme.METRICS.PADDING}px;

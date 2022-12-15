@@ -11,6 +11,7 @@ import { ButtonVoid } from "../../../../../../../../global/components/buttons/bu
 
 import { Container } from "./form-comment.styles";
 import { useUser } from "../../../../../../../../hooks/contexts/auth/authenticate/useUser";
+import { Loading } from "../../../../../../../../global/components/utils/loading/loading.component";
 
 type FormData = {
   content: string;
@@ -69,11 +70,15 @@ const FormComment: React.FC<FormCommentProps> = ({
         onPress={handleSubmit(handleSendComment)}
         disabled={!content || isLoadComment}
       >
-        <Ionicons
-          name="send"
-          size={RFValue(26)}
-          color={!!content ? COLORS.PRIMARY : COLORS.CAPTION_500}
-        />
+        {!isLoadComment && (
+          <Ionicons
+            name="send"
+            size={RFValue(26)}
+            color={!!content ? COLORS.PRIMARY : COLORS.CAPTION_500}
+          />
+        )}
+
+        {isLoadComment && <Loading isLoading={isLoadComment} />}
       </ButtonVoid>
     </Container>
   );

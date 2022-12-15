@@ -25,6 +25,11 @@ export function signInService() {
           "Ocorreu um erro inesperado ao realizar o login. Tente novamente."
       });
 
+      console.log({
+        token,
+        user
+      });
+
       setDefaultToken(token);
 
       return {

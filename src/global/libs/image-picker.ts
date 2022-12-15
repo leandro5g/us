@@ -14,6 +14,6 @@ export async function pickImage() {
   if (result.cancelled === false) {
     const mimeType = getMimeType(result.uri);
 
-    return `data:image/${mimeType};base64,${result.uri}`;
+    return `data:image/${mimeType};base64,${result.base64}`;
   }
 }
