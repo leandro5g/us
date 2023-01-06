@@ -20,8 +20,8 @@ export const ContentHeader = styled.View`
 
 export const NameUser = styled.Text<NameUserProps>`
   color: ${({ theme, is_anonymos }) =>
-    is_anonymos ? theme.COLORS.CAPTION_400 : theme.COLORS.PRIMARY};
-  font-size: ${RFValue(18)}px;
+    is_anonymos ? theme.COLORS.CAPTION_400 : theme.COLORS.CAPTION_300};
+  font-size: ${RFValue(16)}px;
   font-family: ${({ theme }) => theme.FONTS.SEMIBOLD};
 `;
 export const ContentInfo = styled.View`

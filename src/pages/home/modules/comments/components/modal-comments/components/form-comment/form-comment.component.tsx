@@ -44,8 +44,6 @@ const FormComment: React.FC<FormCommentProps> = ({
         user_id: user?.id
       };
 
-      console.log(body);
-
       const response = await sendComment(body);
 
       if (response?.id) {

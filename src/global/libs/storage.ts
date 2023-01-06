@@ -23,7 +23,7 @@ const useStorage = () => {
   const getItem = useCallback(async (key: string) => {
     try {
       const response = await AsyncStorage.getItem(key);
-      return JSON.parse(response || "");
+      return JSON.parse(response);
     } catch (error) {
       console.log(error);
       return false;

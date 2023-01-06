@@ -4,6 +4,7 @@ import { Feather } from "@expo/vector-icons";
 import { RFValue } from "../../../../../libs/responsive-size";
 
 export const Container = styled.View`
+  width: 100%;
   padding: ${({ theme }) => theme.METRICS.PADDING / 1.5}px
     ${({ theme }) => theme.METRICS.PADDING}px;
 
@@ -27,8 +28,9 @@ export const IconTrash = styled(Feather).attrs(({ theme }) => ({
   size: RFValue(24),
   color: theme.COLORS.CAPTION_400
 }))`
-  flex-direction: row;
-  align-items: center;
+  position: absolute;
+  z-index: 999;
+  right: ${({ theme }) => theme.METRICS.PADDING}px;
 `;
 
 export const IconMessage = styled(Feather).attrs(({ theme }) => ({

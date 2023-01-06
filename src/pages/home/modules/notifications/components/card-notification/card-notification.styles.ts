@@ -2,11 +2,10 @@ import styled from "styled-components/native";
 import { RFValue } from "../../../../../../global/libs/responsive-size";
 
 export const Container = styled.View`
-  height: ${({ theme }) => theme.METRICS.BUTTON_SIZE}px;
   flex-direction: row;
   align-items: center;
-  padding: 0px ${({ theme }) => theme.METRICS.PADDING}px;
-  margin-bottom: ${RFValue(10)}px;
+  padding: ${RFValue(10)}px ${({ theme }) => theme.METRICS.PADDING}px;
+  margin-bottom: ${RFValue(20)}px;
 `;
 
 export const ContentText = styled.View`

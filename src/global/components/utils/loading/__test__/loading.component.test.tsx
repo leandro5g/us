@@ -12,8 +12,6 @@ describe("loading", () => {
 
     const element = getByTestId("LoadingComponent");
 
-    console.log(element.props);
-
     expect(element.props.animating).toBe(true);
   });
 });

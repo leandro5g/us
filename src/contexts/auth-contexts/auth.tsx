@@ -41,17 +41,17 @@ const AuthContextProvider: React.FC<AuthContextProviderProps> = ({
   }, []);
 
   const loadDataStorage = useCallback(async () => {
-    // const { token, user } = await getDataStorage();
+    const responseStorage = await getDataStorage();
 
-    // if (!token) {
-    //   signOut();
-    //   return;
-    // }
+    if (!responseStorage?.token) {
+      setIsLoading(false);
+      return;
+    }
 
-    // setDefaultToken(token);
+    setDefaultToken(responseStorage.token);
 
-    // setUser(user);
-    // setToken(token);
+    setUser(responseStorage.user);
+    setToken(responseStorage.token);
 
     setIsLoading(false);
   }, []);

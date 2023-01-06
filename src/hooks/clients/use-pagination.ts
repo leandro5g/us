@@ -39,6 +39,9 @@ export function usePagination<T>({ fetchData, params }: UsePaginationProps) {
       });
   }, [page, totalPage, isLoading]);
 
+
+  
+
   const handleRefresh = useCallback(() => {
     setIsRefreshing(true);
 
@@ -61,8 +64,6 @@ export function usePagination<T>({ fetchData, params }: UsePaginationProps) {
       ...params
     })
       .then(({ data, total_page }) => {
-        console.log("data >>>", data);
-
         setData(data);
         setTotalPage(total_page);
         setPage((oldPage) => oldPage + 1);

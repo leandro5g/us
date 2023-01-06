@@ -33,11 +33,11 @@ export const THEME_DARK = {
   },
 
   FONTSIZES: {
-    SM: RFValue(16),
-    SM2: RFValue(18),
-    SM3: RFValue(20),
-    MD: RFValue(22),
-    MD2: RFValue(24)
+    SM: RFValue(14),
+    SM2: RFValue(16),
+    SM3: RFValue(18),
+    MD: RFValue(20),
+    MD2: RFValue(22)
   },
 
   FONTS_SIZES: {

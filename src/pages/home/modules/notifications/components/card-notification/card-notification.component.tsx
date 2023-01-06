@@ -4,21 +4,38 @@ import { useTheme } from "styled-components";
 
 import { Feather } from "@expo/vector-icons";
 
-import { Emoji } from "../../../../../../global/components/texts/emoji/emoji.component";
 import { SubTitleDefault } from "../../../../../../global/components/texts/sub-title-default/sub-title-default.component";
+import { Avatar } from "../../../../../../global/components/avatar/avatar.component";
+import { TextDefault } from "../../../../../../global/components/texts/text-default/text-default.component";
 
 import { Container, ContentText } from "./card-notification.styles";
+import { returnDistanceDate } from "../../../../../../global/utils/return-distance-date";
 
-const CardNotification: React.FC = () => {
+type CardNotificationProps = {
+  data: Notification.NotificationModel;
+};
+
+const CardNotification: React.FC<CardNotificationProps> = ({ data }) => {
   const { COLORS } = useTheme();
 
   return (
     <Container>
-      <Emoji>🥺</Emoji>
+      <Avatar
+        name_user={data?.author?.name}
+        uri_avatar={data?.author?.avatar}
+        is_anonymos={false}
+      />
 
       <ContentText>
         <SubTitleDefault type="SPAM">
-          Voçê recebeu um comentário no seu desabafo
+          {data?.author?.name}{" "}
+          <TextDefault numberOfLines={2} type="h3">
+            {data?.content}
+          </TextDefault>
+        </SubTitleDefault>
+
+        <SubTitleDefault>
+          {returnDistanceDate(new Date(data?.created_at))}
         </SubTitleDefault>
       </ContentText>
       <Feather

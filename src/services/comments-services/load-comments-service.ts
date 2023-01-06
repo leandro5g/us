@@ -19,10 +19,6 @@ export async function loadCommentsService<R>({
           page_size
         }
       });
-    console.log({
-      comments,
-      total_page
-    });
 
     return {
       data: comments as R[],
