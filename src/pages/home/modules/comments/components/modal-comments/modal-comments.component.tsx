@@ -2,6 +2,8 @@ import React from "react";
 
 import { ModalDefault } from "../../../../../../global/components/modals/modal-default/modal-default.component";
 import { KeyboardHandle } from "../../../../../../global/components/utils/keyboard-handle/keyboard-handle.component";
+import { ListData } from "../../../../../../global/components/utils/list-data/list-data.component";
+import { Loading } from "../../../../../../global/components/utils/loading/loading.component";
 import { usePagination } from "../../../../../../hooks/clients/use-pagination";
 import { loadCommentsService } from "../../../../../../services/comments-services/load-comments-service";
 import { FormComment } from "./components/form-comment/form-comment.component";
@@ -41,14 +43,18 @@ const ModalComments: React.FC<ModalCommentsProps> = ({
     <KeyboardHandle>
       <ModalDefault visible={isVisible} onClose={onClose} title="Comentarios">
         <Container>
-          <ListComments
-            comments={data}
-            isLoading={isLoading}
-            handleMore={handleMore}
-            handleRefresh={handleRefresh}
-            isLoadingPaginate={isLoadingPaginate}
-            isRefreshing={isRefreshing}
-          />
+          {!isLoading && (
+            <ListComments
+              comments={data}
+              isLoading={isLoading}
+              handleMore={handleMore}
+              handleRefresh={handleRefresh}
+              isLoadingPaginate={isLoadingPaginate}
+              isRefreshing={isRefreshing}
+            />
+          )}
+
+          {isLoading && <Loading isLoading={isLoading} />}
 
           <FormComment
             addNewComment={addNewItemData}

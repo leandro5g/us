@@ -30,7 +30,6 @@ const ListComments: React.FC<ListCommentsProps> = ({
       onEndReachedThreshold={0.8}
       showsVerticalScrollIndicator={false}
       data={comments}
-      ListFooterComponent={() => <Loading isLoading={isLoadingPaginate} />}
       renderItem={({ item }) => (
         <CardComments data={item as Comment.CommentType} />
       )}

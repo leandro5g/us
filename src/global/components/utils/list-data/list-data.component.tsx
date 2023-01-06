@@ -13,9 +13,10 @@ type ListDataProps = {
     params: HttpClient.PaginateParams
   ): Promise<HttpClient.PaginateResponse<T>>;
   renderItem(props: ListRenderItemInfo<any>): JSX.Element;
+  params?: Object;
 };
 
-function ListData<M>({ fetchData, renderItem }: ListDataProps) {
+function ListData<M>({ fetchData, renderItem, params }: ListDataProps) {
   const {
     data,
     handleMore,
@@ -23,7 +24,7 @@ function ListData<M>({ fetchData, renderItem }: ListDataProps) {
     isLoadingPaginate,
     handleRefresh,
     isRefreshing
-  } = usePagination<M>({ fetchData });
+  } = usePagination<M>({ fetchData, params });
 
   return (
     <Container>
@@ -38,9 +39,6 @@ function ListData<M>({ fetchData, renderItem }: ListDataProps) {
             onEndReachedThreshold={0.7}
             keyExtractor={(_, index) => String(index)}
             renderItem={renderItem}
-            ListFooterComponent={() => (
-              <Loading isLoading={isLoadingPaginate} />
-            )}
           />
         </Content>
       )}
