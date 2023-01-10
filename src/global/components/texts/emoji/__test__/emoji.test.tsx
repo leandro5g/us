@@ -1,14 +1,14 @@
 import { render } from "@testing-library/react-native";
-import { ThemeProviderStyle } from "../../../../styles/providers/theme-provider";
+import { AppProvider } from "../../../../providers/app-provider";
 import { Emoji } from "../emoji.component";
 
 const TEXT_EMOJI = "🚀";
 describe("Emoji", () => {
   it("Should be able to render component Emoji", () => {
     const { getByText } = render(
-      <ThemeProviderStyle>
+      <AppProvider>
         <Emoji>{TEXT_EMOJI}</Emoji>
-      </ThemeProviderStyle>
+      </AppProvider>
     );
 
     const element = getByText(TEXT_EMOJI);

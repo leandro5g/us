@@ -1,7 +1,7 @@
 import React from "react";
-import { Loading } from "../../../../../../../../global/components/utils/loading/loading.component";
+import { Loading } from "../../../../utils/loading/loading.component";
 
-import { CardComments } from "../../../card-comments/card-comments.component";
+import { CardComments } from "../../../../cards/card-comments/card-comments.component";
 
 import { Container, List } from "./list-comments.styles";
 

@@ -1,13 +1,13 @@
 import { render } from "@testing-library/react-native";
-import { ThemeProviderStyle } from "../../../../styles/providers/theme-provider";
+import { AppProvider } from "../../../../providers/app-provider";
 
 import { Loading } from "../loading.component";
 describe("loading", () => {
   it("slound be able to render component", () => {
     const { getByTestId } = render(
-      <ThemeProviderStyle>
+      <AppProvider>
         <Loading isLoading={true} />
-      </ThemeProviderStyle>
+      </AppProvider>
     );
 
     const element = getByTestId("LoadingComponent");

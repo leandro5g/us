@@ -1,7 +1,7 @@
 import styled from "styled-components/native";
-import { SubTitleDefault } from "../../../../../../global/components/texts/sub-title-default/sub-title-default.component";
-import { TextDefault } from "../../../../../../global/components/texts/text-default/text-default.component";
-import { RFValue } from "../../../../../../global/libs/responsive-size";
+import { SubTitleDefault } from "../../texts/sub-title-default/sub-title-default.component";
+import { TextDefault } from "../../texts/text-default/text-default.component";
+import { RFValue } from "../../../libs/responsive-size";
 
 export const Container = styled.View`
   width: 100%;

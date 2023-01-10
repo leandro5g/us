@@ -1,17 +1,17 @@
 import React, { useCallback } from "react";
 import { useTheme } from "styled-components";
-import { RFValue } from "../../../../../../../../global/libs/responsive-size";
+import { RFValue } from "../../../../../libs/responsive-size";
 import { useForm } from "react-hook-form";
-import { sendCommentService } from "../../../../../../../../services/comments-services/send-comment-service";
+import { sendCommentService } from "../../../../../../services/comments-services/send-comment-service";
 
 import { Ionicons } from "@expo/vector-icons";
 
-import { InputComment } from "../../../input-comment/input-comment.component";
-import { ButtonVoid } from "../../../../../../../../global/components/buttons/button-void/button-void.component";
+import { InputComment } from "../../../../forms/input-comment/input-comment.component";
+import { ButtonVoid } from "../../../../buttons/button-void/button-void.component";
 
 import { Container } from "./form-comment.styles";
-import { useUser } from "../../../../../../../../hooks/contexts/auth/authenticate/useUser";
-import { Loading } from "../../../../../../../../global/components/utils/loading/loading.component";
+import { useUser } from "../../../../../../hooks/contexts/auth/authenticate/useUser";
+import { Loading } from "../../../../utils/loading/loading.component";
 
 type FormData = {
   content: string;

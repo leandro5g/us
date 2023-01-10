@@ -1,16 +1,16 @@
 import React from "react";
 import { render } from "@testing-library/react-native";
 import { TextFeeling } from "../text-feeling.component";
-import { ThemeProviderStyle } from "../../../../styles/providers/theme-provider";
+import { AppProvider } from "../../../../providers/app-provider";
 
 const TEXT_FEELING = "triste";
 
 describe("text feeling", () => {
   it("should be able to render component", () => {
     const { getByTestId } = render(
-      <ThemeProviderStyle>
+      <AppProvider>
         <TextFeeling>{TEXT_FEELING}</TextFeeling>
-      </ThemeProviderStyle>
+      </AppProvider>
     );
 
     const elementSub = getByTestId("SUB_TEXT");
@@ -22,9 +22,9 @@ describe("text feeling", () => {
 
   it("should be able render spam feeling", () => {
     const { getByText } = render(
-      <ThemeProviderStyle>
+      <AppProvider>
         <TextFeeling>{TEXT_FEELING}</TextFeeling>
-      </ThemeProviderStyle>
+      </AppProvider>
     );
 
     const element = getByText(`#${TEXT_FEELING}`);
@@ -34,9 +34,9 @@ describe("text feeling", () => {
 
   it("should be able render complet text", () => {
     const { getByText } = render(
-      <ThemeProviderStyle>
+      <AppProvider>
         <TextFeeling>{TEXT_FEELING}</TextFeeling>
-      </ThemeProviderStyle>
+      </AppProvider>
     );
 
     const element = getByText("Estou");

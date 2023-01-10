@@ -36,8 +36,7 @@ const ModalSelectedFeeling: React.FC<ModalSelectedFeelingProps> = ({
   return (
     <ModalDefault
       title="O que você está sentindo?"
-      visible={isVisible}
-      onClose={onClose}
+      
     >
       <Container>
         <Content>

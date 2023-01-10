@@ -1,15 +1,17 @@
-import { KeyboardAvoidingView } from "react-native";
+import { KeyboardAvoidingView, Platform } from "react-native";
 import styled from "styled-components/native";
 
-export const Modal = styled.Modal`
-  flex: 1;
-  position: absolute;
-`;
+import { AntDesign } from "@expo/vector-icons";
+import { RFValue } from "../../../libs/responsive-size";
 
 export const Container = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.BG_RGBA};
   justify-content: flex-end;
+`;
+
+export const Group = styled.View`
+  flex: 1;
 `;
 
 export const HeaderModal = styled.View`
@@ -24,4 +26,14 @@ export const Content = styled.View`
   background-color: ${({ theme }) => theme.COLORS.SHAPE};
 `;
 
-export const KeyboardAvoiding = styled(KeyboardAvoidingView)``;
+export const KeyboardAvoiding = styled(KeyboardAvoidingView).attrs({
+  behavior: Platform.OS === "ios" ? "position" : undefined
+})``;
+
+export const IconClose = styled(AntDesign).attrs(({ theme }) => ({
+  name: "close",
+  size: RFValue(24),
+  color: theme.COLORS.CAPTION_300
+}))`
+  margin-right: ${RFValue(20)}px;
+`;

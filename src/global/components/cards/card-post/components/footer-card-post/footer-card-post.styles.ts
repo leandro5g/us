@@ -16,6 +16,7 @@ export const Container = styled.View`
 export const ContentIcon = styled.View`
   flex-direction: row;
   align-items: center;
+  margin-left: ${RFValue(20)}px;
 `;
 
 export const ContentFooter = styled.View`
@@ -38,8 +39,5 @@ export const IconMessage = styled(Feather).attrs(({ theme }) => ({
   size: RFValue(24),
   color: theme.COLORS.CAPTION_400
 }))`
-  flex-direction: row;
-  align-items: center;
-  margin-left: ${RFValue(15)}px;
-  margin-right: ${RFValue(10)}px;
+  margin-right: ${RFValue(8)}px;
 `;

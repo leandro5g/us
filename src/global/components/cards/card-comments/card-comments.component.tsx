@@ -1,7 +1,5 @@
 import React from "react";
-import { Avatar } from "../../../../../../global/components/avatar/avatar.component";
-import { SubTitleDefault } from "../../../../../../global/components/texts/sub-title-default/sub-title-default.component";
-import { TextDefault } from "../../../../../../global/components/texts/text-default/text-default.component";
+import { Avatar } from "../../avatar/avatar.component";
 
 import {
   Container,

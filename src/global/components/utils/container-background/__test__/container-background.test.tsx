@@ -1,13 +1,13 @@
 import { render } from "@testing-library/react-native";
-import { ThemeProviderStyle } from "../../../../styles/providers/theme-provider";
+import { AppProvider } from "../../../../providers/app-provider";
 
 import { ContainerBackground } from "../container-background.component";
 describe("container background", () => {
   it("sloud be able to render component", () => {
     const { findByTestId } = render(
-      <ThemeProviderStyle>
+      <AppProvider>
         <ContainerBackground />
-      </ThemeProviderStyle>
+      </AppProvider>
     );
 
     const element = findByTestId("ContainerBackground");

@@ -1,59 +1,79 @@
-import React from "react";
-import { ModalProps, Platform } from "react-native";
-import { useTheme } from "styled-components";
-import { RFValue } from "../../../libs/responsive-size";
-
-import { AntDesign } from "@expo/vector-icons";
+import React, {
+  forwardRef,
+  useCallback,
+  useImperativeHandle,
+  useRef
+} from "react";
+import {
+  BottomSheetModal,
+  BottomSheetModalProvider
+} from "@gorhom/bottom-sheet";
 
 import { ButtonVoid } from "../../buttons/button-void/button-void.component";
 import { Title } from "../../texts/title/title.component";
 
 import {
   Container,
-  Modal,
   HeaderModal,
   Content,
-  KeyboardAvoiding
+  KeyboardAvoiding,
+  IconClose,
+  Group
 } from "./modal-default.styles";
 
-export interface ModalDefaultProps extends ModalProps {
+export type ModalHandles = {
+  handleOpenModal(): void;
+  handleCloseModal(): void;
+};
+
+export interface ModalDefaultProps {
   title: string;
   children: React.ReactNode;
-  onClose(): void;
 }
 
-const ModalDefault: React.FC<ModalDefaultProps> = ({
-  children,
-  onClose,
-  title,
-  ...rest
-}) => {
-  const { COLORS } = useTheme();
+const ModalDefault = forwardRef<ModalHandles, ModalDefaultProps>(
+  ({ title, children }, handleRefMethods) => {
+    const modalRef = useRef<BottomSheetModal>(null);
 
-  return (
-    <Modal transparent animationType="slide" onRequestClose={onClose} {...rest}>
-      <Container>
-        <HeaderModal>
-          <ButtonVoid onPress={onClose}>
-            <AntDesign
-              style={{ marginRight: RFValue(20) }}
-              name="close"
-              size={RFValue(24)}
-              color={COLORS.CAPTION_300}
-            />
-          </ButtonVoid>
+    const handleOpenModal = useCallback(() => {
+      modalRef?.current?.present();
+    }, []);
 
-          <Title>{title}</Title>
-        </HeaderModal>
+    const handleCloseModal = useCallback(() => {
+      modalRef?.current?.close();
+    }, []);
 
-        <KeyboardAvoiding
-          behavior={Platform.OS === "ios" ? "position" : undefined}
-        >
-          <Content>{children}</Content>
-        </KeyboardAvoiding>
-      </Container>
-    </Modal>
-  );
-};
+    useImperativeHandle(handleRefMethods, () => {
+      return {
+        handleOpenModal,
+        handleCloseModal
+      };
+    });
+
+    return (
+      <BottomSheetModalProvider>
+        <BottomSheetModal ref={modalRef} snapPoints={[300, 1000]}>
+          <Group>
+            <ButtonVoid onPress={handleOpenModal}>{children}</ButtonVoid>
+
+            {/* <Container>
+            <HeaderModal>
+              <ButtonVoid onPress={handleCloseModal}>
+                <IconClose />
+              </ButtonVoid>
+
+              <Title>{title}</Title>
+            </HeaderModal>
+
+            <KeyboardAvoiding>
+              <Content>{children}</Content>
+            </KeyboardAvoiding>
+          </Container> */}
+          </Group>
+        </BottomSheetModal>
+      </BottomSheetModalProvider>
+    );
+  }
+);
 
 export { ModalDefault };

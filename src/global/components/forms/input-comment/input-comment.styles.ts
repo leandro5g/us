@@ -1,6 +1,6 @@
 import { TextInput } from "react-native";
 import styled from "styled-components/native";
-import { RFValue } from "../../../../../../global/libs/responsive-size";
+import { RFValue } from "../../../libs/responsive-size";
 
 export const Input = styled(TextInput)`
   flex: 1;
